@@ -17,7 +17,16 @@ android {
         }
     }
 
-//    在layout下面建立其他子文件夹，其他建立方法可谷歌
+//    在layout下面建立其他子文件夹，其他建立方法如下，其中layouts是在展示project时重新建立的文件夹
+//    sourceSets{
+//        main{
+//            res.srcDirs=[
+//                    'src/main/res/layouts/student',
+//                    'src/main/res/layouts',
+//                    'src/main/res'
+//            ]
+//        }
+//    }
     def listSubFile = {
         def resFolder = 'src/main/res/layout'
         def files = file(resFolder).listFiles()
@@ -34,6 +43,7 @@ android {
             res.srcDirs = listSubFile()
         }
     }
+
 }
 
 dependencies {
