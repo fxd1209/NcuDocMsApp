@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".activitys.login.RegisterActivity">
         </activity>
+        <activity android:name=".activitys.teacher.TeacherMainActivity">
+        </activity>
     </application>
 
 </manifest>

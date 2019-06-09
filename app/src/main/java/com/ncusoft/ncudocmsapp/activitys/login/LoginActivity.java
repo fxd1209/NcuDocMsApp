@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.R;
+import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherMainActivity;
 import com.ncusoft.ncudocmsapp.pojo.User;
 import com.ncusoft.ncudocmsapp.repository.DatabaseHelper;
 import com.ncusoft.ncudocmsapp.service.login.LoginInterface;
@@ -19,7 +20,7 @@ import com.ncusoft.ncudocmsapp.utils.ToastUtil;
 
 public class LoginActivity extends AppCompatActivity {
     LoginInterface loginInterface=new LoginService();
-    Button btnReg,btnLogin;
+    Button btnReg,btnLogin,btnForgetPwd;
     EditText loginId,loginPwd;
 
     @Override
@@ -32,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
         btnReg=(Button)findViewById(R.id.btn_register);
         btnLogin=(Button)findViewById(R.id.btn_login);
+        btnForgetPwd=(Button)findViewById(R.id.btn_forget_pwd);
         loginId=(EditText)findViewById(R.id.edit_login_id);
         loginPwd=(EditText)findViewById(R.id.edit_login_password);
 
@@ -76,6 +78,12 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent=new Intent();
                 intent.setClass(LoginActivity.this,RegisterActivity.class);
                 startActivity(intent);
+            }
+        });
+        btnForgetPwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent().setClass(LoginActivity.this, TeacherMainActivity.class));
             }
         });
 
