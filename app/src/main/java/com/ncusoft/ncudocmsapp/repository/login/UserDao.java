@@ -4,16 +4,17 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.pojo.User;
 import com.ncusoft.ncudocmsapp.repository.DatabaseHelper;
 import com.ncusoft.ncudocmsapp.repository.TableInterface;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserDao implements TableInterface {
 
     private static UserDao userDao;
+    private static DatabaseHelper databaseHelper;
     //表名以及字段
     public final static String tableName="user_table";
     public final static String id="id";
@@ -21,6 +22,9 @@ public class UserDao implements TableInterface {
     public final static String authority="authority";
 
 
+    private UserDao(){
+        UserDao.databaseHelper= ClientApplication.getDatabaseHelper();
+    }
     public static UserDao getInstance(){
         if (userDao==null)
             userDao=new UserDao();
@@ -47,11 +51,14 @@ public class UserDao implements TableInterface {
      */
     @Override
     public long insert(DatabaseHelper databaseHelper, ContentValues values) {
-        //ClientApplication中数据库不会被创建，只有对数据库操作时才被创建
         SQLiteDatabase db=databaseHelper.getWritableDatabase();
         long id=db.insert(UserDao.tableName,null,values);
         db.close();
         return id;
+    }
+    @Override
+    public long insert(ContentValues values) {
+        return insert(databaseHelper,values);
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
 import com.ncusoft.ncudocmsapp.pojo.User;
 import com.ncusoft.ncudocmsapp.repository.DatabaseHelper;
@@ -17,6 +18,7 @@ import java.util.List;
 public class TeacherDao implements TableInterface {
 
     private static TeacherDao teacherDao;
+    private static DatabaseHelper databaseHelper;
     //表名以及字段
     public final static String tableName = "teacher_table";
     public final static String id = "id";
@@ -26,12 +28,14 @@ public class TeacherDao implements TableInterface {
     public final static String email = "email";
     public final static String proTitle = "proTitle";
 
+    private TeacherDao(){
+        TeacherDao.databaseHelper= ClientApplication.getDatabaseHelper();
+    }
     public static TeacherDao getInstance() {
         if (TeacherDao.teacherDao == null)
             teacherDao = new TeacherDao();
         return teacherDao;
     }
-
     @Override
     public void onCreateTable(SQLiteDatabase db) {
         String sql = "Create table if not exists " + TeacherDao.tableName + "(" + TeacherDao.id + " TEXT primary key,"
@@ -51,9 +55,13 @@ public class TeacherDao implements TableInterface {
     @Override
     public long insert(DatabaseHelper databaseHelper, ContentValues values) {
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
-        long id = db.insert(UserDao.tableName, null, values);
+        long id = db.insert(TeacherDao.tableName, null, values);
         db.close();
         return id;
+    }
+    @Override
+    public long insert(ContentValues values) {
+        return insert(databaseHelper,values);
     }
 
     @Override

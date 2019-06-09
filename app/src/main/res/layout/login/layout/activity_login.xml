@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="56dp">
+        android:layout_marginTop="100dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,46 +55,47 @@
                 android:background="@drawable/selector_edittext"
                 android:inputType="textPassword"/>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="312dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:text="@string/login"
-            android:textSize="20sp"
-            android:background="#F0FFF0"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:gravity="center">
             <Button
-                android:id="@+id/btn_register"
-                android:layout_width="0dp"
+                android:id="@+id/btn_login"
+                android:layout_width="312dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="@string/login"
+                android:textSize="20sp"
+                android:background="#F0FFF0"/>
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/register"
-                android:background="@null"/>
-            <!--android:background="#00000000"-->
+                android:gravity="center">
+                <Button
+                    android:id="@+id/btn_register"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/register"
+                    android:background="@null"/>
+                <!--android:background="#00000000"-->
 
-            <Button
-                android:id="@+id/btn_forget_pwd"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/forget_pwd"
-                android:background="@null"/>
-            <!--android:background="#00000000"-->
+                <Button
+                    android:id="@+id/btn_forget_pwd"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/forget_pwd"
+                    android:background="@null"/>
+                <!--android:background="#00000000"-->
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+
 
 
 </LinearLayout>

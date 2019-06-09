@@ -15,26 +15,22 @@ import com.ncusoft.ncudocmsapp.pojo.User;
 import com.ncusoft.ncudocmsapp.repository.DatabaseHelper;
 import com.ncusoft.ncudocmsapp.service.login.LoginInterface;
 import com.ncusoft.ncudocmsapp.service.login.LoginService;
-import com.ncusoft.ncudocmsapp.utils.SharedVar;
 import com.ncusoft.ncudocmsapp.utils.ToastUtil;
 
 public class LoginActivity extends AppCompatActivity {
     LoginInterface loginInterface=new LoginService();
-    Button btnRegister;
-    Button btnLogin;
-    EditText loginId;
-    EditText loginPwd;
+    Button btnReg,btnLogin;
+    EditText loginId,loginPwd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //getApplication只能在Activity中调用，但是需要在service中调用，为避免传参，
-        // 故将application保存在SharedVar里面
-        ClientApplication clientApplication=(ClientApplication)getApplication();
-        SharedVar.setClientApplication(clientApplication);
+        //getApplication只能在Activity中调用，需要在service中调用，
+        // 故将application保存供调用
+        ClientApplication.setClientApplication((ClientApplication)getApplication());
 
-        btnRegister=(Button)findViewById(R.id.btn_register);
+        btnReg=(Button)findViewById(R.id.btn_register);
         btnLogin=(Button)findViewById(R.id.btn_login);
         loginId=(EditText)findViewById(R.id.edit_login_id);
         loginPwd=(EditText)findViewById(R.id.edit_login_password);
@@ -74,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();

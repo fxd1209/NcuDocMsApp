@@ -9,4 +9,9 @@
     <string name="hint_username">请输入登录名</string>
     <string name="hint_userpwd">请输入密码</string>
     <!--Login end-->
+
+    <string-array name="authority">
+        <item>学生</item>
+        <item>教师</item>
+    </string-array>
 </resources>

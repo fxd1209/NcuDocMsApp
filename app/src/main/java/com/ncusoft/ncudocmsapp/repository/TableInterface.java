@@ -11,6 +11,7 @@ public interface TableInterface {
     public void onUpgradeTable(SQLiteDatabase db,int oldVersion,int newVersion);
 
     public long insert(DatabaseHelper databaseHelper, ContentValues values);
+    public long insert(ContentValues values);
     //返回删除的数据条数
     public int delete(String table, String whereClause, String[] whereArgs);
     //通过ID

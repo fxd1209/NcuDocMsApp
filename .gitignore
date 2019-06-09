@@ -22,6 +22,7 @@
 # generated files
 bin/
 gen/
+.git
 
 
 

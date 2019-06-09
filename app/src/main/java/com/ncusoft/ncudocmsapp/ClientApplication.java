@@ -6,7 +6,8 @@ import com.ncusoft.ncudocmsapp.repository.DatabaseHelper;
 
 public class ClientApplication extends Application {
 
-    private DatabaseHelper databaseHelper;
+    private static ClientApplication clientApplication;
+    private static DatabaseHelper databaseHelper;
     private static String DatabaseName="ncudms.db";
 
     /**
@@ -15,12 +16,16 @@ public class ClientApplication extends Application {
     @Override
     public void onCreate(){
         super.onCreate();
-        this.databaseHelper=new DatabaseHelper(getApplicationContext(),DatabaseName,null,1);
+        ClientApplication.databaseHelper=new DatabaseHelper(getApplicationContext(),DatabaseName,null,1);
     }
 
-    public DatabaseHelper getDatabaseHelper(){
-        if (this.databaseHelper==null)
-            this.databaseHelper=new DatabaseHelper(getApplicationContext(),DatabaseName,null,1);
-        return this.databaseHelper;
+    public static DatabaseHelper getDatabaseHelper(){
+        return ClientApplication.databaseHelper;
+    }
+    public static ClientApplication getInstance(){
+        return clientApplication;
+    }
+    public static void setClientApplication(ClientApplication clientApplication){
+        ClientApplication.clientApplication=clientApplication;
     }
 }
