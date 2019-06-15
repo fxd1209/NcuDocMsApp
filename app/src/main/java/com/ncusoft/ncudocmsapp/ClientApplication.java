@@ -1,11 +1,16 @@
 package com.ncusoft.ncudocmsapp;
 
+import android.app.Activity;
 import android.app.Application;
 
 import com.ncusoft.ncudocmsapp.repository.DatabaseHelper;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class ClientApplication extends Application {
 
+    private static List<Activity> activityList = new LinkedList<Activity>();
     private static ClientApplication clientApplication;
     private static DatabaseHelper databaseHelper;
     private static String DatabaseName="ncudms.db";
@@ -27,5 +32,16 @@ public class ClientApplication extends Application {
     }
     public static void setClientApplication(ClientApplication clientApplication){
         ClientApplication.clientApplication=clientApplication;
+    }
+    //添加Activity到容器中
+    public static void addActivity(Activity activity)  {
+        activityList.add(activity);
+    }
+    //遍历所有Activity并finish
+    public static void exit() {
+        for(Activity activity:activityList) {
+            activity.finish();
+        }
+        activityList.clear();
     }
 }

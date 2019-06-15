@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".activitys.login.RegisterActivity">
         </activity>
-        <activity android:name=".activitys.teacher.TeacherMainActivity">
+        <activity android:name=".activitys.teacher.TeacherCourseActivity">
         </activity>
     </application>
 
