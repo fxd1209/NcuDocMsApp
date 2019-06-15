@@ -90,6 +90,5 @@ public class CourseGridAdapter extends BaseAdapter {
             termTxtV=(TextView)itemView.findViewById(R.id.course_item_grid_term);
             classCountTxtV=(TextView)itemView.findViewById(R.id.course_item_grid_classCount);
         }
-
     }
 }
