@@ -11,9 +11,8 @@ import android.widget.Toast;
 
 import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.R;
-import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherMainActivity;
+import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherCourseActivity;
 import com.ncusoft.ncudocmsapp.pojo.User;
-import com.ncusoft.ncudocmsapp.repository.DatabaseHelper;
 import com.ncusoft.ncudocmsapp.service.login.LoginInterface;
 import com.ncusoft.ncudocmsapp.service.login.LoginService;
 import com.ncusoft.ncudocmsapp.utils.ToastUtil;
@@ -83,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
         btnForgetPwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent().setClass(LoginActivity.this, TeacherMainActivity.class));
+                startActivity(new Intent().setClass(LoginActivity.this, TeacherCourseActivity.class));
             }
         });
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/teacher_main_toolbal"
+        layout="@layout/toolbal_base"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <GridView
+            android:id="@+id/teacher_course_grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2"
+            android:columnWidth="90dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="10dp"
+            android:cacheColorHint="#00000000"
+            android:listSelector="#00000000"
+            android:scrollbars="none"
+            android:fadeScrollbars="true"
+            android:fastScrollEnabled="true"
+            >
+        </GridView>
+
+    </LinearLayout>
+
+
+
+    <!--<GridView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:numColumns="2"-->
+        <!--android:columnWidth="90dp"-->
+        <!--android:stretchMode="columnWidth"  //缩放与列宽大小同步-->
+        <!--android:verticalSpacing="10dp"-->
+        <!--android:horizontalSpacing="10dp"-->
+        <!--android:cacheColorHint="#00000000" //去除拖动时默认的黑色背景-->
+        <!--android:listSelector="#00000000" //去除选中时的黄色底色-->
+        <!--android:scrollbars="none" //隐藏GridView的滚动条-->
+        <!--android:fadeScrollbars="true"  //设置为true就可以实现滚动条的自动隐藏和显示-->
+        <!--android:fastScrollEnabled="true" /GridView出现快速滚动的按钮(至少滚动4页才会显示)-->
+        <!--&gt;-->
+    <!--</GridView>-->
+
+</LinearLayout>
