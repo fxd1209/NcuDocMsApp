@@ -29,9 +29,4 @@ gen/
 .idea/codeStyles/Project.xml
 .idea/gradle.xml
 .idea/misc.xml
-<<<<<<< HEAD
-.idea/codeStyles/Project.xml
-.idea/gradle.xml
-=======
->>>>>>> a8c0e82c58df4d6136757c6cbeef7e54aeb2a7e3
-.idea/misc.xml
+
