@@ -30,3 +30,4 @@ gen/
 .idea/gradle.xml
 .idea/misc.xml
 
+.idea/codeStyles/Project.xml

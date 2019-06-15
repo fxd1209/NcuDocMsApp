@@ -76,7 +76,7 @@ public class TeacherDao implements TableInterface {
         Cursor cursor = db.rawQuery(sql, new String[]{id});
         //若查询到结果
         if (cursor != null && cursor.moveToFirst() && cursor.getCount() > 0) { //后面条件满足一条即可
-            User user = cursorToTeacher(cursor);
+            User user = cursorToPojo(cursor);
             cursor.close();
             db.close();
             return user;
@@ -88,21 +88,21 @@ public class TeacherDao implements TableInterface {
     @Override
     public List<Teacher> queryAll(DatabaseHelper databaseHelper) {
         SQLiteDatabase db=databaseHelper.getReadableDatabase();
-        List<Teacher> teacherList=new ArrayList<>();
+        List<Teacher> list=new ArrayList<>();
 //        Cursor cursor = db.rawQuery("select * from person where name like ? and age=?", new String[]{"%传智%", "4"});
 //        Cursor cursor = db.rawQuery(“select * from person”, null);
         Cursor cursor=db.query(
                 TeacherDao.tableName, null, null, null,
                 null, null, null);
         for(cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
-            teacherList.add(cursorToTeacher(cursor));
+            list.add(cursorToPojo(cursor));
         }
         cursor.close();
         db.close();
-        return teacherList;
+        return list;
     }
 
-    private Teacher cursorToTeacher(Cursor cursor){
+    private Teacher cursorToPojo(Cursor cursor){
         Teacher teacher=new Teacher();
         teacher.setId(cursor.getString(cursor.getColumnIndex(TeacherDao.id)));
         teacher.setName(cursor.getString(cursor.getColumnIndex(TeacherDao.name)));
