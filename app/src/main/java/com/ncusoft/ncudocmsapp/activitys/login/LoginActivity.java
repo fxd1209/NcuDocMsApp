@@ -14,12 +14,12 @@ import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherCourseActivity;
 import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherMainActivity;
 import com.ncusoft.ncudocmsapp.pojo.User;
-import com.ncusoft.ncudocmsapp.service.login.LoginInterface;
+import com.ncusoft.ncudocmsapp.service.login.LoginServiceInterface;
 import com.ncusoft.ncudocmsapp.service.login.LoginService;
 import com.ncusoft.ncudocmsapp.utils.ToastUtil;
 
 public class LoginActivity extends AppCompatActivity {
-    LoginInterface loginInterface=new LoginService();
+    LoginServiceInterface loginInterface=new LoginService();
     Button btnReg,btnLogin,btnForgetPwd;
     EditText loginId,loginPwd;
 

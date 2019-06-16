@@ -2,18 +2,16 @@ package com.ncusoft.ncudocmsapp.service.login;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.pojo.Student;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
 import com.ncusoft.ncudocmsapp.pojo.User;
-import com.ncusoft.ncudocmsapp.repository.DatabaseHelper;
 import com.ncusoft.ncudocmsapp.repository.login.UserDao;
 import com.ncusoft.ncudocmsapp.repository.teacher.TeacherDao;
 import com.ncusoft.ncudocmsapp.utils.VerifyUtil;
 
-public class RegisterService implements RegisterInterface{
+public class RegisterService implements RegisterServiceInterface {
     public static final String TAG="User.RegisterService:";
     private UserDao userDao=UserDao.getInstance();
     private TeacherDao teacherDao=TeacherDao.getInstance();

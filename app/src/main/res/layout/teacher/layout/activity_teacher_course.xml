@@ -6,8 +6,8 @@
     android:orientation="vertical">
 
     <include
-        android:id="@+id/teacher_main_toolbal"
-        layout="@layout/toolbal_base"/>
+        layout="@layout/toolbal_base"
+        android:id="@+id/teacher_main_toolbal" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

@@ -59,8 +59,11 @@ public class CourseDao implements TableInterface {
         return 0;
     }
 
+    public Course queryById(String id) {
+       return queryById(databaseHelper,id);
+    }
     @Override
-    public Object queryById(DatabaseHelper databaseHelper, String id) {
+    public Course queryById(DatabaseHelper databaseHelper, String id) {
         String sql = "select * from " + CourseDao.tableName + " where " + CourseDao.id + "=?";
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, new String[]{id});

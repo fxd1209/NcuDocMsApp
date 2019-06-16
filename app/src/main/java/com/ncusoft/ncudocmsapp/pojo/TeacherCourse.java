@@ -128,4 +128,17 @@ public class TeacherCourse implements Pojo{
         contentValues.put("classCount",this.classCount);
         return contentValues;
     }
+
+    @Override
+    public String toString() {
+        return "TeacherCourse{" +
+                "id='" + id + '\'' +
+                ", teacherId='" + teacherId + '\'' +
+                ", courseId='" + courseId + '\'' +
+                ", term='" + term + '\'' +
+                ", classCount='" + classCount + '\'' +
+                ", teacher=" + teacher +
+                ", course=" + course +
+                '}';
+    }
 }

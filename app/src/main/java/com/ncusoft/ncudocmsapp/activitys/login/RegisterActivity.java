@@ -1,6 +1,5 @@
 package com.ncusoft.ncudocmsapp.activitys.login;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -17,15 +16,13 @@ import android.widget.Toast;
 import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
-import com.ncusoft.ncudocmsapp.pojo.User;
-import com.ncusoft.ncudocmsapp.repository.login.UserDao;
-import com.ncusoft.ncudocmsapp.service.login.RegisterInterface;
+import com.ncusoft.ncudocmsapp.service.login.RegisterServiceInterface;
 import com.ncusoft.ncudocmsapp.service.login.RegisterService;
 import com.ncusoft.ncudocmsapp.utils.ToastUtil;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    RegisterInterface registerInterface=new RegisterService();
+    RegisterServiceInterface registerInterface=new RegisterService();
 
     EditText regId,regName,regPwd,checkPwd;
     Button btnReg,btnBack;

@@ -2,7 +2,7 @@ package com.ncusoft.ncudocmsapp.service.login;
 
 import com.ncusoft.ncudocmsapp.pojo.User;
 
-public interface LoginInterface {
+public interface LoginServiceInterface {
 
     /**
      * 登录查询

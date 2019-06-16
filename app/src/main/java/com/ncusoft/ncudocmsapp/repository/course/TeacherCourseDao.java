@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.ncusoft.ncudocmsapp.ClientApplication;
+import com.ncusoft.ncudocmsapp.pojo.Course;
 import com.ncusoft.ncudocmsapp.pojo.TeacherCourse;
 import com.ncusoft.ncudocmsapp.repository.DatabaseHelper;
 import com.ncusoft.ncudocmsapp.repository.TableInterface;
@@ -93,7 +94,22 @@ public class TeacherCourseDao implements TableInterface {
         //如果查询到的结果为空
         return null;
     }
-
+    public List<TeacherCourse> queryByTeacherId(String id){
+        return queryByTeacherId(databaseHelper,id);
+    }
+    public List<TeacherCourse> queryByTeacherId(DatabaseHelper databaseHelper, String id){
+        String sql="select * from "+ TeacherCourseDao.tableName+" where "+ TeacherCourseDao.teacherId+"=?";
+        SQLiteDatabase db=databaseHelper.getReadableDatabase();
+        Cursor cursor=db.rawQuery(sql,new String[]{id});
+        //若查询到结果
+        List<TeacherCourse> list=new ArrayList<>();
+        for(cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            list.add(cursorToPojo(cursor));
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
     public List<TeacherCourse> queryAll(DatabaseHelper databaseHelper){
         SQLiteDatabase db=databaseHelper.getReadableDatabase();
         List<TeacherCourse> list=new ArrayList<>();

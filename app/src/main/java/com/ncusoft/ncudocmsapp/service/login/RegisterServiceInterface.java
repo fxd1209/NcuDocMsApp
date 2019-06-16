@@ -3,7 +3,7 @@ package com.ncusoft.ncudocmsapp.service.login;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
 import com.ncusoft.ncudocmsapp.pojo.User;
 
-public interface RegisterInterface {
+public interface RegisterServiceInterface {
 
     /**
      * 检测注册是输入合法性

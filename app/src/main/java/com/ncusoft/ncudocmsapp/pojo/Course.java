@@ -68,4 +68,13 @@ public class Course implements Pojo{
         contentValues.put("credit",this.credit);
         return contentValues;
     }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", credit='" + credit + '\'' +
+                '}';
+    }
 }

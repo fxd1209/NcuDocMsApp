@@ -1,12 +1,10 @@
 package com.ncusoft.ncudocmsapp.service.login;
 
-import android.util.Log;
-
 import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.pojo.User;
 import com.ncusoft.ncudocmsapp.repository.login.UserDao;
 
-public class LoginService implements LoginInterface{
+public class LoginService implements LoginServiceInterface {
    private UserDao userDao= UserDao.getInstance();
     @Override
     public User login(String id, String password) {

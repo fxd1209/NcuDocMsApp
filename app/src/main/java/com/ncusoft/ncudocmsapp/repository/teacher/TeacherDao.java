@@ -69,17 +69,20 @@ public class TeacherDao implements TableInterface {
         return 0;
     }
 
+    public Teacher queryById(String id) {
+        return queryById(databaseHelper,id);
+    }
     @Override
-    public Object queryById(DatabaseHelper databaseHelper, String id) {
+    public Teacher queryById(DatabaseHelper databaseHelper, String id) {
         String sql = "select * from " + TeacherDao.tableName + " where " + TeacherDao.id + "=?";
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, new String[]{id});
         //若查询到结果
         if (cursor != null && cursor.moveToFirst() && cursor.getCount() > 0) { //后面条件满足一条即可
-            User user = cursorToPojo(cursor);
+            Teacher teacher = cursorToPojo(cursor);
             cursor.close();
             db.close();
-            return user;
+            return teacher;
         }
         //如果查询到的结果为空
         return null;
