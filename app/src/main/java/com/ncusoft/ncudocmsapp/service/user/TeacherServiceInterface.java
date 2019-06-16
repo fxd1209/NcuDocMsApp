@@ -6,6 +6,7 @@ import com.ncusoft.ncudocmsapp.pojo.StudentCourse;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
 import com.ncusoft.ncudocmsapp.pojo.TeacherCourse;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -22,5 +23,5 @@ public interface TeacherServiceInterface {
      * 获得自己某个班的学生列表
      * @return
      */
-    public Map<Course,List<StudentCourse>> getStudentList(TeacherCourse teacherCourse);
+    public Map<Course, ArrayList<StudentCourse>> getStudentList(TeacherCourse teacherCourse);
 }

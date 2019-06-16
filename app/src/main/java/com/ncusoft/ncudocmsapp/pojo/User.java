@@ -2,7 +2,9 @@ package com.ncusoft.ncudocmsapp.pojo;
 
 import android.content.ContentValues;
 
-public class User implements Pojo{
+import java.io.Serializable;
+
+public class User implements Pojo, Serializable {
 
     private String id;
     private String password;

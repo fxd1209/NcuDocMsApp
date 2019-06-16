@@ -2,7 +2,9 @@ package com.ncusoft.ncudocmsapp.pojo;
 
 import android.content.ContentValues;
 
-public class Student extends User {
+import java.io.Serializable;
+
+public class Student extends User implements Serializable {
     private String name;
     private String sex;
     private String grade;

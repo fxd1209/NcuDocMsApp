@@ -3,6 +3,7 @@ package com.ncusoft.ncudocmsapp.activitys.teacher;
 import android.app.ActionBar;
 import android.app.WallpaperManager;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
@@ -126,7 +127,7 @@ public class TeacherCourseActivity extends BaseActivity {
         Set<Teacher> teacherSet=tCourseListMap.keySet();
         for (Teacher teacher : teacherSet){
             list=tCourseListMap.get(teacher);
-            if (teacher==null || list==null||list.size()<=0) break;
+            if (teacher==null || list==null) break;
             Log.i(TAG+"教师",teacher.toString());
             for (TeacherCourse tc:list){
                 Log.i(TAG+"课程",tc.toString());
@@ -155,18 +156,20 @@ public class TeacherCourseActivity extends BaseActivity {
     public boolean onContextItemSelected(MenuItem item){
         switch (item.getItemId()){
             case 0: //点击查看学生
-                Map<Course,List<StudentCourse>>map=teacherService.getStudentList(list.get(currentSel));
-                List<StudentCourse> scList=new ArrayList<>();
+                Map<Course,ArrayList<StudentCourse>>map=teacherService.getStudentList(list.get(currentSel));
+                ArrayList<StudentCourse> scList=new ArrayList<>();
                 Set<Course> courseSet=map.keySet();
                 for (Course course:courseSet){
                     scList=map.get(course);
+                    if (course==null || scList==null) break;
+
                 }
-                //TODO:在activity中展示 学生列表
-                ToastUtil.initToast(
-                        TeacherCourseActivity.this,
-                        ToastUtil.ToastType.SUCCESS,
-                        "点击了0",
-                        Toast.LENGTH_LONG,new Point(0,0)).show();
+                Intent intent=new Intent();
+                Bundle bundle =new Bundle();
+                intent.setClass(TeacherCourseActivity.this,TeacherStuListActivity.class);
+                bundle.putSerializable("stuList",scList);
+                intent.putExtras(bundle);
+                startActivity(intent);
                 break;
             case 1: //点击添加学生
                 break;

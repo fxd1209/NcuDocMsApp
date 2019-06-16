@@ -64,7 +64,7 @@ public class TeacherService implements TeacherServiceInterface{
     }
 
     @Override
-    public Map<Course,List<StudentCourse>> getStudentList(TeacherCourse teacherCourse) {
+    public Map<Course,ArrayList<StudentCourse>> getStudentList(TeacherCourse teacherCourse) {
         SQLiteDatabase db= ClientApplication.getDatabaseHelper().getReadableDatabase();
         String courseId=teacherCourse.getCourseId();
         String term=teacherCourse.getTerm();
@@ -79,11 +79,12 @@ public class TeacherService implements TeacherServiceInterface{
                 StudentCourseDao.classCount+"="+classCount+";";
 
         Cursor cursor= db.rawQuery(sql,null);
-        List<StudentCourse> list=new ArrayList<>();
+        ArrayList<StudentCourse> list=new ArrayList<>();
         for(cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
             Student student=new Student();
             student.setId(cursor.getString(cursor.getColumnIndex(StudentCourseDao.studentId)));
             student.setName(cursor.getString(cursor.getColumnIndex(StudentDao.name)));
+            student.setSex(cursor.getString(cursor.getColumnIndex(StudentDao.sex)));
             StudentCourse studentCourse=new StudentCourse();
             studentCourse.setTerm(cursor.getString(cursor.getColumnIndex(StudentCourseDao.term)));
             studentCourse.setClassCount(cursor.getString(cursor.getColumnIndex(StudentCourseDao.classCount)));
@@ -93,7 +94,7 @@ public class TeacherService implements TeacherServiceInterface{
         cursor.close();
         db.close();
         Course course=courseDao.queryById(courseId);
-        Map<Course,List<StudentCourse>> map= new HashMap<>();
+        Map<Course,ArrayList<StudentCourse>> map= new HashMap<>();
         map.put(course,list);
         return map;
     }

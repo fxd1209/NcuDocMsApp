@@ -2,7 +2,9 @@ package com.ncusoft.ncudocmsapp.pojo;
 
 import android.content.ContentValues;
 
-public class Course implements Pojo{
+import java.io.Serializable;
+
+public class Course implements Pojo ,Serializable {
     private String id;    //编号
     private String name;  //课程名
     private String credit;//学分

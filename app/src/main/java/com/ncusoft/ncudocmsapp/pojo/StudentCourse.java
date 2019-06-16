@@ -2,7 +2,9 @@ package com.ncusoft.ncudocmsapp.pojo;
 
 import android.content.ContentValues;
 
-public class StudentCourse implements Pojo{
+import java.io.Serializable;
+
+public class StudentCourse implements Pojo, Serializable {
     private String id;    //数据库自增 不用设置
     private String studentId;
     private String courseId;
