@@ -71,7 +71,13 @@ public class StudentCourse implements Pojo, Serializable {
     }
     @Override
     public ContentValues toContentValues() {
-        return null;
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("id",this.id);
+        contentValues.put("studentId",this.studentId);
+        contentValues.put("courseId",this.courseId);
+        contentValues.put("term",this.term);
+        contentValues.put("classCount",this.classCount);
+        return contentValues;
     }
 
     @Override

@@ -21,6 +21,8 @@ public class StudentDao implements TableInterface {
     public final static String id = "id";
     public final static String name = "name";
     public final static String sex = "sex";
+    public final static String grade="grade";
+    public final static String classId="classId";
     public final static String phone = "phone";
     public final static String email = "email";
 
@@ -37,6 +39,8 @@ public class StudentDao implements TableInterface {
         String sql = "Create table if not exists " + StudentDao.tableName + "(" + StudentDao.id + " TEXT primary key,"
                 + StudentDao.name + " TEXT,"
                 + StudentDao.sex + " TEXT,"
+                + StudentDao.grade + " TEXT,"
+                + StudentDao.classId + " TEXT,"
                 + StudentDao.phone + " TEXT,"
                 + StudentDao.email + " TEXT);";
         db.execSQL(sql);

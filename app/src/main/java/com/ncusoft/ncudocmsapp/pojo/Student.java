@@ -120,6 +120,8 @@ public class Student extends User implements Serializable {
         ContentValues contentValues=super.toContentValues();
         contentValues.put("name",this.name);
         contentValues.put("sex",this.sex);
+        contentValues.put("grade",this.grade);
+        contentValues.put("classId",this.classId);
         contentValues.put("phone",this.phone);
         contentValues.put("email",this.email);
         return contentValues;

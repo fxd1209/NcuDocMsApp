@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 public class TeacherService implements TeacherServiceInterface{
-    public static final String TAG="Teacher.TeacherService:";
+    public static final String TAG="Teacher.TeaService:";
 
     private TeacherDao teacherDao=TeacherDao.getInstance();
     private CourseDao courseDao=CourseDao.getInstance();
@@ -36,7 +36,7 @@ public class TeacherService implements TeacherServiceInterface{
                 " as tc on c."+CourseDao.id+" =tc."+
                 TeacherCourseDao.courseId+" WHERE "+
                 TeacherCourseDao.teacherId+"="+teacherId+";";
-
+        Log.i(TAG+"tea:",sql);
         Cursor cursor= db.rawQuery(sql,null);
         List<TeacherCourse> list=new ArrayList<>();
         for(cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
@@ -79,11 +79,11 @@ public class TeacherService implements TeacherServiceInterface{
         String sql="select * from "+ StudentDao.tableName+
                 " as s inner join "+ StudentCourseDao.tableName+
                 " as sc on s."+StudentDao.id+" =sc."+
-                StudentCourseDao.studentId+" WHERE "+
-                StudentCourseDao.courseId+"="+courseId+" and "+
-                StudentCourseDao.term+"="+term+" and "+
-                StudentCourseDao.classCount+"="+classCount+";";
-
+                StudentCourseDao.studentId+" WHERE sc."+
+                StudentCourseDao.courseId+"='"+courseId+"' and "+
+                StudentCourseDao.term+"='"+term+"' and "+
+                StudentCourseDao.classCount+"='"+classCount+"';";
+        Log.i(TAG+"stu:",sql);
         Cursor cursor= db.rawQuery(sql,null);
         ArrayList<StudentCourse> list=new ArrayList<>();
         for(cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){

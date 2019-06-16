@@ -26,6 +26,7 @@ import com.ncusoft.ncudocmsapp.pojo.StudentCourse;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
 import com.ncusoft.ncudocmsapp.pojo.TeacherCourse;
 import com.ncusoft.ncudocmsapp.repository.course.CourseDao;
+import com.ncusoft.ncudocmsapp.repository.course.StudentCourseDao;
 import com.ncusoft.ncudocmsapp.repository.course.TeacherCourseDao;
 import com.ncusoft.ncudocmsapp.service.user.TeacherService;
 import com.ncusoft.ncudocmsapp.service.user.TeacherServiceInterface;
@@ -52,6 +53,7 @@ public class TeacherCourseActivity extends BaseActivity {
     //TODO 测试用
     CourseDao courseDao=CourseDao.getInstance();
     TeacherCourseDao teacherCourseDao=TeacherCourseDao.getInstance();
+    StudentCourseDao studentCourseDao=StudentCourseDao.getInstance();
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,7 +85,7 @@ public class TeacherCourseActivity extends BaseActivity {
         baseBar.setOnMenuItemClickListener(onMenuItemClickListener);
 
 
-//        //测试用
+        //测试用
 //        ContentValues cvCourse1=new Course.CourseBuilder()
 //                .id("c123")
 //                .name("高等数学")
@@ -122,6 +124,39 @@ public class TeacherCourseActivity extends BaseActivity {
 //        teacherCourseDao.insert(cvTc1);
 //        teacherCourseDao.insert(cvTc2);
 //        teacherCourseDao.insert(cvTc3);
+        ContentValues cvSc1=new StudentCourse.StudentCourseBuilder()
+            .id(null)
+            .studentId("18780451091")
+            .courseId("c123")
+            .term("2018-2019-2")
+            .classCount("2")
+            .build().toContentValues();
+        ContentValues cvSc2=new StudentCourse.StudentCourseBuilder()
+            .id(null)
+            .studentId("18780451091")
+            .courseId("c456")
+            .term("2018-2019-1")
+            .classCount("1")
+            .build().toContentValues();
+        ContentValues cvSc4=new StudentCourse.StudentCourseBuilder()
+                .id(null)
+                .studentId("18798891209")
+                .courseId("c456")
+                .term("2018-2019-1")
+                .classCount("1")
+                .build().toContentValues();
+        ContentValues cvSc3=new StudentCourse.StudentCourseBuilder()
+            .id(null)
+            .studentId("18798891209")
+            .courseId("c123")
+            .term("2018-2020-1")
+            .classCount("5")
+            .build().toContentValues();
+        studentCourseDao.insert(cvSc1);
+        studentCourseDao.insert(cvSc2);
+        studentCourseDao.insert(cvSc3);
+        studentCourseDao.insert(cvSc4);
+
         courseGirdView = (GridView) findViewById(R.id.teacher_course_grid_view);
         tCourseListMap=teacherService.getTeaCourseByTeacherId("18748980084");
         Set<Teacher> teacherSet=tCourseListMap.keySet();
