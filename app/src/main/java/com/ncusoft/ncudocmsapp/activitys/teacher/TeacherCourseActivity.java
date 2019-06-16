@@ -124,6 +124,11 @@ public class TeacherCourseActivity extends BaseActivity {
         courseGirdView = (GridView) findViewById(R.id.teacher_course_grid_view);
         tCourseListMap=teacherService.getTeaCourseByTeacherId("18748980084");
         Set<Teacher> teacherSet=tCourseListMap.keySet();
+     
+
+        Map<Teacher,List<TeacherCourse>> tcourseListMap=teacherService.getTeacherCourseByTeacherId("18780451091");
+        Set<Teacher> teacherSet=tcourseListMap.keySet();
+        List<TeacherCourse> list=new ArrayList<>();
         for (Teacher teacher : teacherSet){
             list=tCourseListMap.get(teacher);
             Log.i(TAG+"教师",teacher.toString());
