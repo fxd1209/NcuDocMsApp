@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.Toast;
-import android.widget.Toolbar;
+import android.support.v7.widget.Toolbar;
 
 import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.activitys.BaseActivity;
@@ -32,7 +32,6 @@ public class TeacherCourseActivity extends BaseActivity {
     public static final String TAG="teacher.TCActivity";
 
     GridView courseGirdView;
-    View toolbarView;
     Toolbar baseBar;
     TeacherServiceInterface teacherService=new TeacherService();
 
@@ -52,15 +51,14 @@ public class TeacherCourseActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_course);
-        toolbarView = findViewById(R.id.teacher_main_toolbal);
-        baseBar = (Toolbar) toolbarView.findViewById(R.id.toolbar_base);
+        baseBar =(Toolbar) findViewById(R.id.teacher_main_toolbal);
 
         baseBar.setLogo(R.drawable.bianji);
         baseBar.setTitle("  Material Design ToolBar");
         baseBar.setSubtitle("  ToolBar subtitle");
 
 
-        setActionBar(baseBar);
+        setSupportActionBar(baseBar);
         courseGirdView = (GridView) findViewById(R.id.teacher_course_grid_view);
 
         baseBar.setNavigationIcon(R.drawable.bianji);

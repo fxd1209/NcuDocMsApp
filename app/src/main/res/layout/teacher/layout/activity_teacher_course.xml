@@ -7,7 +7,8 @@
 
     <include
         layout="@layout/toolbal_base"
-        android:id="@+id/teacher_main_toolbal" />
+        android:id="@+id/teacher_main_toolbal" /> <!--这个id会代替 toolbal_base里面的id，实际运行的时候是将toolbal_base
+                                                               里面的代码拷贝过来-->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
