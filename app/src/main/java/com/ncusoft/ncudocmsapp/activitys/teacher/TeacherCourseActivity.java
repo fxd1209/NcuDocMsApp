@@ -42,7 +42,7 @@ public class TeacherCourseActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //加载菜单文件
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_toolbar_base, menu);
         return true;
     }
 
@@ -151,7 +151,7 @@ public class TeacherCourseActivity extends BaseActivity {
 
 
 
-////    //toolbar菜单栏
+//    //toolbar菜单栏
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        getMenuInflater().inflate(R.menu.menu_toolbar_base,menu);
