@@ -9,6 +9,9 @@ public class TeacherCourse implements Pojo{
     private String term;
     private String classCount;
 
+    private Teacher teacher;
+    private Course course;
+
     public String getTerm() {
         return term;
     }
@@ -48,6 +51,22 @@ public class TeacherCourse implements Pojo{
         this.courseId = courseId;
     }
 
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
     public TeacherCourse(){};
     public TeacherCourse(TeacherCourse.TeacherCourseBuilder teacherCourseBuilder ){
         this.id=teacherCourseBuilder.id;
@@ -63,6 +82,8 @@ public class TeacherCourse implements Pojo{
         private String courseId;
         private String term;
         private String classCount;
+        private Teacher teacher;
+        private Course course;
 
         public TeacherCourse.TeacherCourseBuilder id(String id){
             this.id=id;
@@ -82,6 +103,14 @@ public class TeacherCourse implements Pojo{
         }
         public TeacherCourse.TeacherCourseBuilder classCount(String classCount){
             this.classCount=classCount;
+            return this;
+        }
+        public TeacherCourse.TeacherCourseBuilder teacher(Teacher teacher){
+            this.teacher=teacher;
+            return this;
+        }
+        public TeacherCourse.TeacherCourseBuilder course(Course course){
+            this.course=course;
             return this;
         }
         public TeacherCourse build(){
