@@ -5,8 +5,10 @@ import android.content.ContentValues;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.ncusoft.ncudocmsapp.R;
@@ -38,15 +40,39 @@ public class TeacherCourseActivity extends BaseActivity {
     CourseDao courseDao=CourseDao.getInstance();
     TeacherCourseDao teacherCourseDao=TeacherCourseDao.getInstance();
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //加载菜单文件
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_course);
-        toolbarView= findViewById(R.id.teacher_main_toolbal);
-        baseBar=(Toolbar)toolbarView.findViewById(R.id.toolbar_base);
+        toolbarView = findViewById(R.id.teacher_main_toolbal);
+        baseBar = (Toolbar) toolbarView.findViewById(R.id.toolbar_base);
+
+        baseBar.setLogo(R.drawable.bianji);
+        baseBar.setTitle("  Material Design ToolBar");
+        baseBar.setSubtitle("  ToolBar subtitle");
+
+
         setActionBar(baseBar);
-        courseGirdView=(GridView)findViewById(R.id.teacher_course_grid_view);
+        courseGirdView = (GridView) findViewById(R.id.teacher_course_grid_view);
+
+        baseBar.setNavigationIcon(R.drawable.bianji);
+        baseBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(), "This is a Toast", Toast.LENGTH_SHORT).show();
+            }
+        });
+        baseBar.setOnMenuItemClickListener(onMenuItemClickListener);
+
 
 //        //测试用
 //        ContentValues cvCourse1=new Course.CourseBuilder()
@@ -91,7 +117,7 @@ public class TeacherCourseActivity extends BaseActivity {
         Map<Teacher,List<TeacherCourse>> tcourseListMap=teacherService.getTeacherCourseByTeacherId("18748980084");
         Set<Teacher> teacherSet=tcourseListMap.keySet();
         List<TeacherCourse> list=new ArrayList<>();
-        for (Teacher teacher :teacherSet){
+        for (Teacher teacher : teacherSet){
             list=tcourseListMap.get(teacher);
             Log.i(TAG+"教师",teacher.toString());
             for (TeacherCourse tc:list){
@@ -100,6 +126,32 @@ public class TeacherCourseActivity extends BaseActivity {
         }
         courseGirdView.setAdapter(new CourseGridAdapter(TeacherCourseActivity.this,list));
     }
+    private Toolbar.OnMenuItemClickListener onMenuItemClickListener=new Toolbar.OnMenuItemClickListener() {
+        @Override
+        public boolean onMenuItemClick(MenuItem menuItem) {
+            switch (menuItem.getItemId()){//
+                // case R.id.action_search://因为使用android.support.v7.widget.SearchView类，可以在
+                // onCreateOptionsMenu(Menu menu)中直接设置监听事件//
+                // Snackbar.make(toolbar,"Click Search",Snackbar.LENGTH_SHORT).show();//
+                // break;
+                case R.id.action_share:
+                    Toast.makeText(getApplicationContext(), "This is a Toast", Toast.LENGTH_SHORT).show();
+                    break;
+                    case R.id.action_more:
+                        Toast.makeText(getApplicationContext(), "This is a Toast", Toast.LENGTH_SHORT).show();
+                        break;
+            }
+            return true;
+        }
+    };
+}
+
+
+
+
+
+
+
 
 ////    //toolbar菜单栏
 //    @Override
@@ -127,4 +179,4 @@ public class TeacherCourseActivity extends BaseActivity {
 //        return true;
 //    }
 
-}
+
