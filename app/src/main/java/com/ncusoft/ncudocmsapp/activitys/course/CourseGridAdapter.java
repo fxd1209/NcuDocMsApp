@@ -1,6 +1,7 @@
 package com.ncusoft.ncudocmsapp.activitys.course;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,11 @@ public class CourseGridAdapter extends BaseAdapter {
     private LayoutInflater layoutInflater; //布局加载器
     private List<TeacherCourse> courseList;
     private ViewHolder viewHolder=null;
+    private int[] imgId={
+            R.drawable.course_1,R.drawable.course_2,
+            R.drawable.course_3,R.drawable.course_4,
+            R.drawable.course_5,R.drawable.course_6,
+            R.drawable.course_7,R.drawable.course_8};
 
     public CourseGridAdapter(Context context, List<TeacherCourse> courseList){
         this.context=context;
@@ -60,7 +66,7 @@ public class CourseGridAdapter extends BaseAdapter {
         }else{
             viewHolder=(ViewHolder)convertView.getTag();
         }
-        viewHolder.imgImgV.setImageResource(R.drawable.icon_success);
+        viewHolder.imgImgV.setImageResource(imgId[position%7]);
         viewHolder.nameTxtV.setText(courseList.get(position).getCourse().getName());
         viewHolder.termTxtV.setText(courseList.get(position).getTerm());
         viewHolder.classCountTxtV.setText(courseList.get(position).getClassCount());

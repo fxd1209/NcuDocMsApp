@@ -8,6 +8,10 @@
     <include
         layout="@layout/toolbal_base"
         android:id="@+id/teacher_main_toolbal" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_title01"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -25,6 +29,8 @@
             android:scrollbars="none"
             android:fadeScrollbars="true"
             android:fastScrollEnabled="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             >
         </GridView>
 
