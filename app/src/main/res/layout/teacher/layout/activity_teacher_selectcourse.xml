@@ -3,15 +3,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
-    >
-    <GridView
-        android:id="@+id/gridview"
+    android:orientation="vertical">
+    <include
+        layout="@layout/toolbal_base"
+        android:id="@+id/teacher_main_toolbal" /> <!--这个id会代替 toolbal_base里面的id，实际运行的时候是将toolbal_base
+                                                               里面的代码拷贝过来-->
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnWidth="80dp"
-        android:stretchMode="spacingWidthUniform"
-        android:numColumns="3"
-        />
+        android:src="@drawable/bg_title01"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <GridView
+            android:id="@+id/teacher_selectc_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2"
+            android:columnWidth="90dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="10dp"
+            android:cacheColorHint="#00000000"
+            android:listSelector="#00000000"
+            android:scrollbars="none"
+            android:fadeScrollbars="true"
+            android:fastScrollEnabled="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+        </GridView>
+
+    </LinearLayout>
+
+
+
+    <!--<GridView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:numColumns="2"-->
+    <!--android:columnWidth="90dp"-->
+    <!--android:stretchMode="columnWidth"  //缩放与列宽大小同步-->
+    <!--android:verticalSpacing="10dp"-->
+    <!--android:horizontalSpacing="10dp"-->
+    <!--android:cacheColorHint="#00000000" //去除拖动时默认的黑色背景-->
+    <!--android:listSelector="#00000000" //去除选中时的黄色底色-->
+    <!--android:scrollbars="none" //隐藏GridView的滚动条-->
+    <!--android:fadeScrollbars="true"  //设置为true就可以实现滚动条的自动隐藏和显示-->
+    <!--android:fastScrollEnabled="true" /GridView出现快速滚动的按钮(至少滚动4页才会显示)-->
+    <!--&gt;-->
+    <!--</GridView>-->
 </LinearLayout>
 

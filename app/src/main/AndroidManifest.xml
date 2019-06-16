@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".activitys.teacher.TeacherStuListActivity">
         </activity>
+        <activity android:name=".activitys.teacher.TeacherSelectCouActivity">
+        </activity>
         <!--teacher -->
     </application>
 

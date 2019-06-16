@@ -77,7 +77,9 @@ public class CourseDao implements TableInterface {
         //如果查询到的结果为空
         return null;
     }
-
+    public List<Course> queryAll() {
+        return queryAll(databaseHelper);
+    }
     @Override
     public List<Course> queryAll(DatabaseHelper databaseHelper) {
         SQLiteDatabase db=databaseHelper.getReadableDatabase();

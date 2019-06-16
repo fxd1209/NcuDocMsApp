@@ -1,12 +1,6 @@
 package com.ncusoft.ncudocmsapp.activitys.teacher;
 
-import android.app.ActionBar;
-import android.app.WallpaperManager;
-import android.content.ContentValues;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -20,7 +14,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.activitys.BaseActivity;
-import com.ncusoft.ncudocmsapp.activitys.course.CourseGridAdapter;
+import com.ncusoft.ncudocmsapp.activitys.course.TeacherCourseAdapter;
 import com.ncusoft.ncudocmsapp.pojo.Course;
 import com.ncusoft.ncudocmsapp.pojo.StudentCourse;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
@@ -30,9 +24,7 @@ import com.ncusoft.ncudocmsapp.repository.course.StudentCourseDao;
 import com.ncusoft.ncudocmsapp.repository.course.TeacherCourseDao;
 import com.ncusoft.ncudocmsapp.service.user.TeacherService;
 import com.ncusoft.ncudocmsapp.service.user.TeacherServiceInterface;
-import com.ncusoft.ncudocmsapp.utils.ToastUtil;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -168,7 +160,7 @@ public class TeacherCourseActivity extends BaseActivity {
                 Log.i(TAG+"课程",tc.toString());
             }
         }
-        courseGirdView.setAdapter(new CourseGridAdapter(TeacherCourseActivity.this,list));
+        courseGirdView.setAdapter(new TeacherCourseAdapter(TeacherCourseActivity.this,list));
         registerForContextMenu(courseGirdView);
         courseGirdView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -191,14 +183,12 @@ public class TeacherCourseActivity extends BaseActivity {
     public boolean onContextItemSelected(MenuItem item){
         switch (item.getItemId()){
             case 0: //点击查看学生
-                //TODO:此处传入的list.get(currentSel)中的courseId为null
                 Map<Course,ArrayList<StudentCourse>>map=teacherService.getStudentList(list.get(currentSel));
                 ArrayList<StudentCourse> scList=new ArrayList<>();
                 Set<Course> courseSet=map.keySet();
                 for (Course course:courseSet){
                     scList=map.get(course);
                     if (course==null || scList==null) break;
-
                 }
                 Intent intent=new Intent();
                 Bundle bundle =new Bundle();

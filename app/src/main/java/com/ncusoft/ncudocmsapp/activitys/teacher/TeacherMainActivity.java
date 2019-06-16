@@ -77,6 +77,7 @@ public class TeacherMainActivity extends BaseActivity {
                     startActivity(new Intent().setClass(TeacherMainActivity.this, TeacherCourseActivity.class));
                     break;
                 case R.id.btn_teacher_selectCourse:
+                    startActivity(new Intent().setClass(TeacherMainActivity.this, TeacherSelectCouActivity.class));
                     break;
                 case R.id.btn_teacher_addCourse:
                     break;

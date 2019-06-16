@@ -1,7 +1,6 @@
 package com.ncusoft.ncudocmsapp.activitys.course;
 
 import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,7 @@ import com.ncusoft.ncudocmsapp.pojo.TeacherCourse;
 
 import java.util.List;
 
-public class CourseGridAdapter extends BaseAdapter {
+public class TeacherCourseAdapter extends BaseAdapter {
 
     private Context context;//声明适配器中引用的上下文
     private LayoutInflater layoutInflater; //布局加载器
@@ -26,7 +25,7 @@ public class CourseGridAdapter extends BaseAdapter {
             R.drawable.course_5,R.drawable.course_6,
             R.drawable.course_7,R.drawable.course_8};
 
-    public CourseGridAdapter(Context context, List<TeacherCourse> courseList){
+    public TeacherCourseAdapter(Context context, List<TeacherCourse> courseList){
         this.context=context;
         this.courseList=courseList;
         layoutInflater=LayoutInflater.from(context);
