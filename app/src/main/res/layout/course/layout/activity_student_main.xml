@@ -4,21 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="教师首页"/>
-
     <ImageView
-        android:id="@+id/teacher_top"
+        android:id="@+id/student_top"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="fitXY"
-        android:src="@drawable/timg" />
+        android:src="@drawable/student" />
 
     <TableLayout
-        android:id="@+id/TableLayout"
+        android:id="@+id/TableLayout02"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
@@ -27,7 +21,7 @@
         <TableRow android:gravity="center">
 
             <Button
-                android:id="@+id/btn_teacher_myclass"
+                android:id="@+id/btn_student_myclass"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:background="@drawable/zhishi"
@@ -39,7 +33,7 @@
                 />
 
             <Button
-                android:id="@+id/btn_teacher_selectclass"
+                android:id="@+id/btn_student_selectclass"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:textSize="40sp"
@@ -57,12 +51,12 @@
         <TableRow android:gravity="center">
 
             <Button
-                android:id="@+id/btn_teacher_addclass"
+                android:id="@+id/btn_student_fracyion"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:textSize="40sp"
-                android:background="@drawable/bianji"
-                android:text="添加课程" />
+                android:background="@drawable/xihuan"
+                android:text="我的成绩" />
             <!-- android:background="#FF8C00" -->
             <TextView
                 android:layout_width="10dp"
@@ -70,7 +64,7 @@
 
 
             <Button
-                android:id="@+id/btn_teacher_mymessage"
+                android:id="@+id/btn_student_mymessage"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:background="@drawable/wode"
@@ -89,7 +83,7 @@
         <TableRow android:gravity="center">
 
             <Button
-                android:id="@+id/btn_teacher_notice"
+                android:id="@+id/btn_student_notice"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:background="@drawable/tongzhi"
@@ -100,12 +94,12 @@
                 />
 
             <Button
-                android:id="@+id/btn_teacher_appraise"
+                android:id="@+id/btn_student_appraise"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:background="@drawable/dianzan"
                 android:textSize="40sp"
-                android:text="学生评价" />
+                android:text="评价" />
 
 
         </TableRow>
