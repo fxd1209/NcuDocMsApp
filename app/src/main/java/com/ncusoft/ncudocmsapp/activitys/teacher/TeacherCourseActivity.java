@@ -7,6 +7,7 @@ import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.activitys.BaseActivity;
 import com.ncusoft.ncudocmsapp.activitys.course.CourseGridAdapter;
 import com.ncusoft.ncudocmsapp.pojo.Course;
+import com.ncusoft.ncudocmsapp.pojo.TeacherCourse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,23 +20,26 @@ public class TeacherCourseActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_course);
         courseGirdView=(GridView)findViewById(R.id.teacher_course_grid_view);
-        Course c1=new Course();
-        c1.setName("高数");
-        c1.setTerm("第一学期");
+        TeacherCourse c1=new TeacherCourse();
+        c1.setCourse(new Course.CourseBuilder()
+        .name("高数").build());
         c1.setClassCount("选修一班");
-        Course c2=new Course();
-        c2.setName("高数啊");
+        c1.setTerm("第二学期");
+        TeacherCourse c2=new TeacherCourse();
+        c2.setCourse(new Course.CourseBuilder()
+                .name("高数").build());
+        c2.setClassCount("选修一班");
         c2.setTerm("第二学期");
-        c2.setClassCount("选修二班");
-        Course c3=new Course();
-        c3.setName("高数啊啊");
-        c3.setTerm("第三学期");
-        c3.setClassCount("选修三班");
-        List<Course> courseList=new ArrayList<>();
-        courseList.add(c1);
-        courseList.add(c2);
-        courseList.add(c3);
-        courseGirdView.setAdapter(new CourseGridAdapter(TeacherCourseActivity.this,courseList));
+        TeacherCourse c3=new TeacherCourse();
+        c3.setCourse(new Course.CourseBuilder()
+                .name("高数").build());
+        c3.setClassCount("选修一班");
+        c3.setTerm("第二学期");
+        List<TeacherCourse> teacherCourseList=new ArrayList<>();
+        teacherCourseList.add(c1);
+        teacherCourseList.add(c2);
+        teacherCourseList.add(c3);
+        courseGirdView.setAdapter(new CourseGridAdapter(TeacherCourseActivity.this,teacherCourseList));
     }
 
     //toolbar菜单栏

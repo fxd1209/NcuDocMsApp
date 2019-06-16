@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ncusoft.ncudocmsapp.R;
-import com.ncusoft.ncudocmsapp.pojo.Course;
+import com.ncusoft.ncudocmsapp.pojo.TeacherCourse;
 
 import java.util.List;
 
@@ -17,18 +17,18 @@ public class CourseGridAdapter extends BaseAdapter {
 
     private Context context;//声明适配器中引用的上下文
     private LayoutInflater layoutInflater; //布局加载器
-    private List<Course> courseList;
+    private List<TeacherCourse> courseList;
     private ViewHolder viewHolder=null;
 
-    public CourseGridAdapter(Context context, List<Course> courseList){
+    public CourseGridAdapter(Context context, List<TeacherCourse> courseList){
         this.context=context;
         this.courseList=courseList;
         layoutInflater=LayoutInflater.from(context);
     }
-    public List<Course> getCourseList() {
+    public List<TeacherCourse> getCourseList() {
         return courseList;
     }
-    public void setCourseList(List<Course> courseList) {
+    public void setCourseList(List<TeacherCourse> courseList) {
         this.courseList = courseList;
     }
 
@@ -61,7 +61,7 @@ public class CourseGridAdapter extends BaseAdapter {
             viewHolder=(ViewHolder)convertView.getTag();
         }
         viewHolder.imgImgV.setImageResource(R.drawable.icon_success);
-        viewHolder.nameTxtV.setText(courseList.get(position).getName());
+        viewHolder.nameTxtV.setText(courseList.get(position).getCourse().getName());
         viewHolder.termTxtV.setText(courseList.get(position).getTerm());
         viewHolder.classCountTxtV.setText(courseList.get(position).getClassCount());
         return convertView;
