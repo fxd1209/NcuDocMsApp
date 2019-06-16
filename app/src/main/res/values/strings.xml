@@ -14,4 +14,8 @@
         <item>学生</item>
         <item>教师</item>
     </string-array>
+    <string-array name="teacher_activity">
+        <item>学生</item>
+        <item>教师</item>
+    </string-array>
 </resources>
