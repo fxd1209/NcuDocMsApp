@@ -72,47 +72,56 @@ public class TeacherCourseActivity extends BaseActivity {
         baseBar.setOnMenuItemClickListener(onMenuItemClickListener);
 
 
-//        //测试用
-//        ContentValues cvCourse1=new Course.CourseBuilder()
-//                .id("c123")
-//                .name("高等数学")
-//                .credit("3")
-//                .build().toContentValues();
-//        ContentValues cvCourse2=new Course.CourseBuilder()
-//                .id("c456")
-//                .name("大学语文")
-//                .credit("2")
-//                .build().toContentValues();
-//        courseDao.insert(cvCourse1);
-//        courseDao.insert(cvCourse2);
-//
-//        ContentValues cvTc1=new TeacherCourse.TeacherCourseBuilder()
-//                .id(null)
-//                .teacherId("18748980084")
-//                .courseId("c123")
-//                .term("2018-2019-2")
-//                .classCount("2")
-//                .build().toContentValues();
-//        ContentValues cvTc2=new TeacherCourse.TeacherCourseBuilder()
-//                .id(null)
-//                .teacherId("18748980084")
-//                .courseId("c456")
-//                .term("2018-2019-1")
-//                .classCount("1")
-//                .build().toContentValues();
-//        ContentValues cvTc3=new TeacherCourse.TeacherCourseBuilder()
-//                .id(null)
-//                .teacherId("18798891209")
-//                .courseId("c123")
-//                .term("2018-2020-1")
-//                .classCount("5")
-//                .build().toContentValues();
-//
-//        teacherCourseDao.insert(cvTc1);
-//        teacherCourseDao.insert(cvTc2);
-//        teacherCourseDao.insert(cvTc3);
+        //测试用
+        ContentValues cvCourse1=new Course.CourseBuilder()
+                .id("c123")
+                .name("高等数学")
+                .credit("3")
+                .build().toContentValues();
+        ContentValues cvCourse2=new Course.CourseBuilder()
+                .id("c456")
+                .name("大学语文")
+                .credit("2")
+                .build().toContentValues();
+        courseDao.insert(cvCourse1);
+        courseDao.insert(cvCourse2);
 
-        Map<Teacher,List<TeacherCourse>> tcourseListMap=teacherService.getTeacherCourseByTeacherId("18748980084");
+        ContentValues cvTc1=new TeacherCourse.TeacherCourseBuilder()
+                .id(null)
+                .teacherId("18748980084")
+                .courseId("c123")
+                .term("2018-2019-2")
+                .classCount("2")
+                .build().toContentValues();
+        ContentValues cvTc2=new TeacherCourse.TeacherCourseBuilder()
+                .id(null)
+                .teacherId("18748980084")
+                .courseId("c456")
+                .term("2018-2019-1")
+                .classCount("1")
+                .build().toContentValues();
+        ContentValues cvTc3=new TeacherCourse.TeacherCourseBuilder()
+                .id(null)
+                .teacherId("18798891209")
+                .courseId("c123")
+                .term("2018-2020-1")
+                .classCount("5")
+                .build().toContentValues();
+        ContentValues cvTc4=new TeacherCourse.TeacherCourseBuilder()
+                .id(null)
+                .teacherId("18780451091")
+                .courseId("c123")
+                .term("2018-2020-1")
+                .classCount("6")
+                .build().toContentValues();
+
+        teacherCourseDao.insert(cvTc1);
+        teacherCourseDao.insert(cvTc2);
+        teacherCourseDao.insert(cvTc3);
+        teacherCourseDao.insert(cvTc4);
+
+
+        Map<Teacher,List<TeacherCourse>> tcourseListMap=teacherService.getTeacherCourseByTeacherId("18780451091");
         Set<Teacher> teacherSet=tcourseListMap.keySet();
         List<TeacherCourse> list=new ArrayList<>();
         for (Teacher teacher : teacherSet){
