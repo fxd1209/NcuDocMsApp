@@ -1,5 +1,6 @@
 package com.ncusoft.ncudocmsapp.service.login;
 
+import com.ncusoft.ncudocmsapp.pojo.Student;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
 import com.ncusoft.ncudocmsapp.pojo.User;
 
@@ -17,4 +18,10 @@ public interface RegisterServiceInterface {
      * @return
      */
     public boolean addTeacher(Teacher teacher);
+
+    /**
+     * 注册学生
+     * @return
+     */
+    public boolean addStudent(Student student);
 }

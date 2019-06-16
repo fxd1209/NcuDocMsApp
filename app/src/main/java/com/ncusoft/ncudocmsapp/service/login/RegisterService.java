@@ -8,13 +8,12 @@ import com.ncusoft.ncudocmsapp.pojo.Student;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
 import com.ncusoft.ncudocmsapp.pojo.User;
 import com.ncusoft.ncudocmsapp.repository.login.UserDao;
+import com.ncusoft.ncudocmsapp.repository.student.StudentDao;
 import com.ncusoft.ncudocmsapp.repository.teacher.TeacherDao;
 import com.ncusoft.ncudocmsapp.utils.VerifyUtil;
 
 public class RegisterService implements RegisterServiceInterface {
     public static final String TAG="User.RegisterService:";
-    private UserDao userDao=UserDao.getInstance();
-    private TeacherDao teacherDao=TeacherDao.getInstance();
 
     @Override
     public String inputCheck(User user) {
@@ -70,6 +69,44 @@ public class RegisterService implements RegisterServiceInterface {
             //userDao.insert(cvUser);此句错误
             db.insertOrThrow(UserDao.tableName,null,cvUser);
             db.insertOrThrow(TeacherDao.tableName,null,cvTeacher);
+            db.setTransactionSuccessful();
+            return true;
+        }catch (android.database.sqlite.SQLiteConstraintException e ){
+            e.printStackTrace();
+            return false;
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }finally {
+            db.endTransaction();
+            db.close();
+        }
+    }
+
+    @Override
+    public boolean addStudent(Student student) {
+        SQLiteDatabase db= ClientApplication.getDatabaseHelper().getWritableDatabase();
+        User user=new User.UserBuilder()
+                .id(student.getId())
+                .password(student.getPassword())
+                .authority(student.getAuthority())
+                .build();
+        //更新user_table和teacher_table
+        ContentValues cvUser=user.toContentValues();
+        ContentValues cvStudent=student.toContentValues();
+        //teacher_table里没有这字段，加载ContentValues会报错
+        cvStudent.remove("password");
+        cvStudent.remove("authority");
+        //事务中不是同一个连接不能用事务，如开始一个事务，调用不同Dao里面的insert就错误，
+        // 因为dao的连接和事务不是同一个连接，这就意味着事务要单独写
+        //            db.intert不会引发异常,可以根据返回值自定义异常
+        //            db.insertOrThrow和db.execSQL();才会引发异常
+        //开启事务
+        db.beginTransaction();
+        try {
+            //userDao.insert(cvUser);此句错误
+            db.insertOrThrow(UserDao.tableName,null,cvUser);
+            db.insertOrThrow(StudentDao.tableName,null,cvStudent);
             db.setTransactionSuccessful();
             return true;
         }catch (android.database.sqlite.SQLiteConstraintException e ){

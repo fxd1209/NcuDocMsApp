@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.R;
+import com.ncusoft.ncudocmsapp.pojo.Student;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
 import com.ncusoft.ncudocmsapp.service.login.RegisterServiceInterface;
 import com.ncusoft.ncudocmsapp.service.login.RegisterService;
@@ -87,6 +88,31 @@ public class RegisterActivity extends AppCompatActivity {
                         return;
                     }
                     if(authority.equals("学生")){
+                        Student student=new Student.StudentBuilder()
+                                .id(id)
+                                .name(name)
+                                .password(pwd)
+                                .sex(sex)
+                                .phone(id).authority("STUDENT").build();
+                        String msg=registerInterface.inputCheck(student);
+
+                        if (msg.equals("SUCCESS")){
+                            if(registerInterface.addStudent(student)){
+                                ToastUtil.initToast(RegisterActivity.this,
+                                        ToastUtil.ToastType.SUCCESS,"注册学生成功",
+                                        Toast.LENGTH_LONG,new Point(0,0)).show();
+                                startActivity(new Intent().setClass(RegisterActivity.this,LoginActivity.class));
+                            }
+                            else{
+                                ToastUtil.initToast(RegisterActivity.this,
+                                        ToastUtil.ToastType.SUCCESS,"注册学生失败!可能用户已存在!请重试!",
+                                        Toast.LENGTH_LONG,new Point(0,0)).show();
+                            }
+                        }else{
+                            ToastUtil.initToast(RegisterActivity.this,
+                                    ToastUtil.ToastType.FAIL,msg,
+                                    Toast.LENGTH_LONG,new Point(0,0)).show();
+                        }
                     }else{
                         Teacher teacher=new Teacher.TeacherBuilder()
                                 .id(id)
@@ -99,13 +125,13 @@ public class RegisterActivity extends AppCompatActivity {
                         if (msg.equals("SUCCESS")){
                             if(registerInterface.addTeacher(teacher)){
                                 ToastUtil.initToast(RegisterActivity.this,
-                                        ToastUtil.ToastType.SUCCESS,"注册成功",
+                                        ToastUtil.ToastType.SUCCESS,"注册教师成功",
                                         Toast.LENGTH_LONG,new Point(0,0)).show();
                                 startActivity(new Intent().setClass(RegisterActivity.this,LoginActivity.class));
                             }
                             else{
                                 ToastUtil.initToast(RegisterActivity.this,
-                                        ToastUtil.ToastType.SUCCESS,"注册失败!可能用户已存在!请重试!",
+                                        ToastUtil.ToastType.SUCCESS,"注册教师失败!可能用户已存在!请重试!",
                                         Toast.LENGTH_LONG,new Point(0,0)).show();
                             }
                         }else{

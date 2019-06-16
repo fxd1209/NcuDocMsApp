@@ -40,13 +40,19 @@ public class TeacherService implements TeacherServiceInterface{
         Cursor cursor= db.rawQuery(sql,null);
         List<TeacherCourse> list=new ArrayList<>();
         for(cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
-            Course course=new Course();
-            course.setId(cursor.getString(cursor.getColumnIndex(TeacherCourseDao.courseId)));
-            course.setName(cursor.getString(cursor.getColumnIndex(CourseDao.name)));
-            TeacherCourse teacherCourse=new TeacherCourse();
-            teacherCourse.setTerm(cursor.getString(cursor.getColumnIndex(TeacherCourseDao.term)));
-            teacherCourse.setClassCount(cursor.getString(cursor.getColumnIndex(TeacherCourseDao.classCount)));
-            teacherCourse.setCourse(course);
+            Course course=new Course.CourseBuilder()
+                    .id(cursor.getString(cursor.getColumnIndex(TeacherCourseDao.courseId)))
+                    .name(cursor.getString(cursor.getColumnIndex(CourseDao.name)))
+                    .credit(cursor.getString(cursor.getColumnIndex(CourseDao.credit)))
+                    .build();
+
+            TeacherCourse teacherCourse=new TeacherCourse.TeacherCourseBuilder()
+                    .courseId(cursor.getString(cursor.getColumnIndex(TeacherCourseDao.courseId)))
+                    .course(course)
+                    .teacherId(cursor.getString(cursor.getColumnIndex(TeacherCourseDao.teacherId)))
+                    .classCount(cursor.getString(cursor.getColumnIndex(TeacherCourseDao.classCount)))
+                    .term(cursor.getString(cursor.getColumnIndex(TeacherCourseDao.term)))
+                    .build();
             list.add(teacherCourse);
         }
         cursor.close();

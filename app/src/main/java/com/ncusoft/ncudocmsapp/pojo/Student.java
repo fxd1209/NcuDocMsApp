@@ -117,6 +117,11 @@ public class Student extends User implements Serializable {
 
     @Override
     public ContentValues toContentValues(){
-        return null;
+        ContentValues contentValues=super.toContentValues();
+        contentValues.put("name",this.name);
+        contentValues.put("sex",this.sex);
+        contentValues.put("phone",this.phone);
+        contentValues.put("email",this.email);
+        return contentValues;
     }
 }

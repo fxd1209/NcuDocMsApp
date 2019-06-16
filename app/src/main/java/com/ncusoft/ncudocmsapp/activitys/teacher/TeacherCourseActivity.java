@@ -156,6 +156,7 @@ public class TeacherCourseActivity extends BaseActivity {
     public boolean onContextItemSelected(MenuItem item){
         switch (item.getItemId()){
             case 0: //点击查看学生
+                //TODO:此处传入的list.get(currentSel)中的courseId为null
                 Map<Course,ArrayList<StudentCourse>>map=teacherService.getStudentList(list.get(currentSel));
                 ArrayList<StudentCourse> scList=new ArrayList<>();
                 Set<Course> courseSet=map.keySet();
