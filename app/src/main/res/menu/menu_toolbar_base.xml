@@ -2,10 +2,22 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <item android:id="@+id/menu_item_back"
-    android:title="返回"/>
-    <item android:id="@+id/menu_item_save"
-        android:title="保存"/>
-
+    <item android:id="@+id/menu_teacher_myclass"
+        app:showAsAction="never"
+        android:title="我的课程"/>
+    <item android:id="@+id/menu_teacher_selectclass"
+        app:showAsAction="never"
+        android:title="选择课程"/>
+    <item android:id="@+id/menu_teacher_addclass"
+        app:showAsAction="never"
+        android:title="添加课程"/>
+    <item android:id="@+id/menu_teacher_mymessage"
+        app:showAsAction="never"
+        android:title="个人信息"/>
+    <item android:id="@+id/menu_teacher_notice"
+        app:showAsAction="never"
+        android:title="信息通知"/>
+    <item android:id="@+id/menu_teacher_appraise"
+        app:showAsAction="never"
+        android:title="学生评价"/>
 </menu>
