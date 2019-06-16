@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherCourseActivity;
+import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherMainActivity;
 import com.ncusoft.ncudocmsapp.pojo.User;
 import com.ncusoft.ncudocmsapp.service.login.LoginInterface;
 import com.ncusoft.ncudocmsapp.service.login.LoginService;
@@ -61,7 +62,8 @@ public class LoginActivity extends AppCompatActivity {
                             //TODO: 到学生界面
                             break;
                         case "TEACHER":
-                            //TODO: 到教师界面
+                            intent.setClass(LoginActivity.this, TeacherMainActivity.class);
+                            startActivity(intent);
                             break;
                     }
                     startActivity(intent);
