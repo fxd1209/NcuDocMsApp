@@ -124,38 +124,38 @@ public class TeacherCourseActivity extends BaseActivity {
 //        teacherCourseDao.insert(cvTc1);
 //        teacherCourseDao.insert(cvTc2);
 //        teacherCourseDao.insert(cvTc3);
-        ContentValues cvSc1=new StudentCourse.StudentCourseBuilder()
-            .id(null)
-            .studentId("18780451091")
-            .courseId("c123")
-            .term("2018-2019-2")
-            .classCount("2")
-            .build().toContentValues();
-        ContentValues cvSc2=new StudentCourse.StudentCourseBuilder()
-            .id(null)
-            .studentId("18780451091")
-            .courseId("c456")
-            .term("2018-2019-1")
-            .classCount("1")
-            .build().toContentValues();
-        ContentValues cvSc4=new StudentCourse.StudentCourseBuilder()
-                .id(null)
-                .studentId("18798891209")
-                .courseId("c456")
-                .term("2018-2019-1")
-                .classCount("1")
-                .build().toContentValues();
-        ContentValues cvSc3=new StudentCourse.StudentCourseBuilder()
-            .id(null)
-            .studentId("18798891209")
-            .courseId("c123")
-            .term("2018-2020-1")
-            .classCount("5")
-            .build().toContentValues();
-        studentCourseDao.insert(cvSc1);
-        studentCourseDao.insert(cvSc2);
-        studentCourseDao.insert(cvSc3);
-        studentCourseDao.insert(cvSc4);
+//        ContentValues cvSc1=new StudentCourse.StudentCourseBuilder()
+//            .id(null)
+//            .studentId("18780451091")
+//            .courseId("c123")
+//            .term("2018-2019-2")
+//            .classCount("2")
+//            .build().toContentValues();
+//        ContentValues cvSc2=new StudentCourse.StudentCourseBuilder()
+//            .id(null)
+//            .studentId("18780451091")
+//            .courseId("c456")
+//            .term("2018-2019-1")
+//            .classCount("1")
+//            .build().toContentValues();
+//        ContentValues cvSc4=new StudentCourse.StudentCourseBuilder()
+//                .id(null)
+//                .studentId("18798891209")
+//                .courseId("c456")
+//                .term("2018-2019-1")
+//                .classCount("1")
+//                .build().toContentValues();
+//        ContentValues cvSc3=new StudentCourse.StudentCourseBuilder()
+//            .id(null)
+//            .studentId("18798891209")
+//            .courseId("c123")
+//            .term("2018-2020-1")
+//            .classCount("5")
+//            .build().toContentValues();
+//        studentCourseDao.insert(cvSc1);
+//        studentCourseDao.insert(cvSc2);
+//        studentCourseDao.insert(cvSc3);
+//        studentCourseDao.insert(cvSc4);
 
         courseGirdView = (GridView) findViewById(R.id.teacher_course_grid_view);
         tCourseListMap=teacherService.getTeaCourseByTeacherId("18748980084");
