@@ -74,6 +74,8 @@ public class TeacherCourse implements Pojo{
         this.courseId=teacherCourseBuilder.courseId;
         this.term=teacherCourseBuilder.term;
         this.classCount=teacherCourseBuilder.classCount;
+        this.teacher=teacherCourseBuilder.teacher;
+        this.course=teacherCourseBuilder.course;
     }
 
     public static class TeacherCourseBuilder{

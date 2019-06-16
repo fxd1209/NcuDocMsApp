@@ -6,10 +6,14 @@ import android.util.Log;
 
 import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.pojo.Course;
+import com.ncusoft.ncudocmsapp.pojo.Student;
+import com.ncusoft.ncudocmsapp.pojo.StudentCourse;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
 import com.ncusoft.ncudocmsapp.pojo.TeacherCourse;
 import com.ncusoft.ncudocmsapp.repository.course.CourseDao;
+import com.ncusoft.ncudocmsapp.repository.course.StudentCourseDao;
 import com.ncusoft.ncudocmsapp.repository.course.TeacherCourseDao;
+import com.ncusoft.ncudocmsapp.repository.student.StudentDao;
 import com.ncusoft.ncudocmsapp.repository.teacher.TeacherDao;
 
 import java.util.ArrayList;
@@ -22,11 +26,10 @@ public class TeacherService implements TeacherServiceInterface{
 
     private TeacherDao teacherDao=TeacherDao.getInstance();
     private CourseDao courseDao=CourseDao.getInstance();
-    private TeacherCourseDao teacherCourseDao=TeacherCourseDao.getInstance();
 
     @Override
-    public Map<Teacher,List<TeacherCourse>> getTeacherCourseByTeacherId(String teacherId) {
-        SQLiteDatabase db= ClientApplication.getDatabaseHelper().getWritableDatabase();
+    public Map<Teacher,List<TeacherCourse>> getTeaCourseByTeacherId(String teacherId) {
+        SQLiteDatabase db= ClientApplication.getDatabaseHelper().getReadableDatabase();
         //多表连接查询 查询教师选课表以及课程信息
         String sql="select * from "+CourseDao.tableName+
                 " as c inner join "+TeacherCourseDao.tableName+
@@ -59,4 +62,41 @@ public class TeacherService implements TeacherServiceInterface{
 //            teacherCourseList.get(i).setCourse(course);
 //        }
     }
+
+    @Override
+    public Map<Course,List<StudentCourse>> getStudentList(TeacherCourse teacherCourse) {
+        SQLiteDatabase db= ClientApplication.getDatabaseHelper().getReadableDatabase();
+        String courseId=teacherCourse.getCourseId();
+        String term=teacherCourse.getTerm();
+        String classCount=teacherCourse.getClassCount();  //这三个确定一个班级
+        //多表连接查询 查询教师选课表以及课程信息
+        String sql="select * from "+ StudentDao.tableName+
+                " as s inner join "+ StudentCourseDao.tableName+
+                " as sc on s."+StudentDao.id+" =sc."+
+                StudentCourseDao.studentId+" WHERE "+
+                StudentCourseDao.courseId+"="+courseId+" and "+
+                StudentCourseDao.term+"="+term+" and "+
+                StudentCourseDao.classCount+"="+classCount+";";
+
+        Cursor cursor= db.rawQuery(sql,null);
+        List<StudentCourse> list=new ArrayList<>();
+        for(cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            Student student=new Student();
+            student.setId(cursor.getString(cursor.getColumnIndex(StudentCourseDao.studentId)));
+            student.setName(cursor.getString(cursor.getColumnIndex(StudentDao.name)));
+            StudentCourse studentCourse=new StudentCourse();
+            studentCourse.setTerm(cursor.getString(cursor.getColumnIndex(StudentCourseDao.term)));
+            studentCourse.setClassCount(cursor.getString(cursor.getColumnIndex(StudentCourseDao.classCount)));
+            studentCourse.setStudent(student);
+            list.add(studentCourse);
+        }
+        cursor.close();
+        db.close();
+        Course course=courseDao.queryById(courseId);
+        Map<Course,List<StudentCourse>> map= new HashMap<>();
+        map.put(course,list);
+        return map;
+    }
+
+
 }

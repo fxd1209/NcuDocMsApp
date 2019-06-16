@@ -6,8 +6,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.ncusoft.ncudocmsapp.repository.course.CourseDao;
+import com.ncusoft.ncudocmsapp.repository.course.StudentCourseDao;
 import com.ncusoft.ncudocmsapp.repository.course.TeacherCourseDao;
 import com.ncusoft.ncudocmsapp.repository.login.UserDao;
+import com.ncusoft.ncudocmsapp.repository.student.StudentDao;
 import com.ncusoft.ncudocmsapp.repository.teacher.TeacherDao;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -19,9 +21,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //创建表格
         UserDao.getInstance().onCreateTable(db);
+        StudentDao.getInstance().onCreateTable(db);
         TeacherDao.getInstance().onCreateTable(db);
         CourseDao.getInstance().onCreateTable(db);
         TeacherCourseDao.getInstance().onCreateTable(db);
+        StudentCourseDao.getInstance().onCreateTable(db);
     }
 
     @Override

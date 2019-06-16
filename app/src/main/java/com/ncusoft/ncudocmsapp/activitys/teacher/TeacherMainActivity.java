@@ -1,5 +1,6 @@
 package com.ncusoft.ncudocmsapp.activitys.teacher;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,15 +10,22 @@ import android.widget.Toast;
 
 import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.activitys.BaseActivity;
+import com.ncusoft.ncudocmsapp.activitys.login.LoginActivity;
 
 public class TeacherMainActivity extends BaseActivity {
+
+    private Button btnCourseList;
+    private Button btnSelectCourse;
+    private Button btnAddCourse;
+    private Button btnPersonInfo;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_main);
+        InitBtns(); //初始化按钮，并绑定监听事件
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -25,6 +33,16 @@ public class TeacherMainActivity extends BaseActivity {
         return true;
     }
 
+    public void InitBtns(){
+        btnCourseList=findViewById(R.id.btn_teacher_courseList);
+        btnSelectCourse=findViewById(R.id.btn_teacher_selectCourse);
+        btnAddCourse=findViewById(R.id.btn_teacher_addCourse);
+        btnPersonInfo=findViewById(R.id.btn_teacher_info);
+        btnCourseList.setOnClickListener(new TeacherBtnListener());
+        btnSelectCourse.setOnClickListener(new TeacherBtnListener());
+        btnAddCourse.setOnClickListener(new TeacherBtnListener());
+        btnPersonInfo.setOnClickListener(new TeacherBtnListener());
+    }
         @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -50,6 +68,26 @@ public class TeacherMainActivity extends BaseActivity {
         return true;
     }
 
+    class TeacherBtnListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.btn_teacher_courseList:
+                    startActivity(new Intent().setClass(TeacherMainActivity.this, TeacherCourseActivity.class));
+                    break;
+                case R.id.btn_teacher_selectCourse:
+                    break;
+                case R.id.btn_teacher_addCourse:
+                    break;
+                case R.id.btn_teacher_info:
+                    break;
+                    default:
+            }
+
+        }
+    }
 }
+
 
 

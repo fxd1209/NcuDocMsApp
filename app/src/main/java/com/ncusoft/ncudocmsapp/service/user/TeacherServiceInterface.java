@@ -1,6 +1,8 @@
 package com.ncusoft.ncudocmsapp.service.user;
 
 import com.ncusoft.ncudocmsapp.pojo.Course;
+import com.ncusoft.ncudocmsapp.pojo.Student;
+import com.ncusoft.ncudocmsapp.pojo.StudentCourse;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
 import com.ncusoft.ncudocmsapp.pojo.TeacherCourse;
 
@@ -14,5 +16,11 @@ public interface TeacherServiceInterface {
      * @param teacherId
      * @return
      */
-    Map<Teacher,List<TeacherCourse>> getTeacherCourseByTeacherId(String teacherId);
+    public Map<Teacher,List<TeacherCourse>> getTeaCourseByTeacherId(String teacherId);
+
+    /**
+     * 获得自己某个班的学生列表
+     * @return
+     */
+    public Map<Course,List<StudentCourse>> getStudentList(TeacherCourse teacherCourse);
 }

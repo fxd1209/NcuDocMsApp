@@ -27,7 +27,7 @@
                 android:background="#E1FFFF"
                 android:src="@drawable/zhishi" />
             <Button
-                android:id="@+id/btn_teacher_myclass"
+                android:id="@+id/btn_teacher_courseList"
                 android:layout_width="80dp"
                 android:layout_height="100dp"
                 android:layout_marginEnd="10dp"
@@ -44,7 +44,7 @@
             android:src="@drawable/chazhao"/>
 
             <Button
-            android:id="@+id/btn_teacher_selectclass"
+            android:id="@+id/btn_teacher_selectCourse"
             android:layout_width="80dp"
             android:layout_height="100dp"
             android:background="#F5DEB3"
@@ -61,7 +61,7 @@
             android:src="@drawable/bianji" />
 
             <Button
-            android:id="@+id/btn_teacher_addclass"
+            android:id="@+id/btn_teacher_addCourse"
             android:layout_width="80dp"
             android:layout_height="100dp"
             android:layout_marginEnd="10dp"
@@ -78,7 +78,7 @@
 
 
             <Button
-            android:id="@+id/btn_teacher_mymessage"
+            android:id="@+id/btn_teacher_info"
             android:layout_width="80dp"
             android:layout_height="100dp"
             android:background="#ADD8E6"

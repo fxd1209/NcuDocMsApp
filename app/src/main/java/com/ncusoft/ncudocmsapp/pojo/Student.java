@@ -7,7 +7,8 @@ public class Student extends User {
     private String sex;
     private String grade;
     private String classId;
-    private String tel;
+    private String phone;
+    private String email;
 
     public Student(){};
     public Student(StudentBuilder studentBuilder){
@@ -16,7 +17,7 @@ public class Student extends User {
         this.sex=studentBuilder.sex;
         this.grade=studentBuilder.grade;
         this.classId=studentBuilder.classId;
-        this.tel=studentBuilder.tel;
+        this.phone=studentBuilder.phone;
     }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
@@ -38,19 +39,22 @@ public class Student extends User {
     public void setClassId(String classId) {
         this.classId = classId;
     }
-    public String getTel() {
-        return tel;
+    public String getPhone() {
+        return phone;
     }
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
     public static class StudentBuilder extends UserBuilder{
         private String name;
         private String sex;
         private String grade;
         private String classId;
-        private String tel;
+        private String phone;
+        private String email;
 
         public StudentBuilder id(String id){
             super.id(id);
@@ -83,8 +87,12 @@ public class Student extends User {
             this.classId=classId;
             return this;
         }
-        public StudentBuilder tel(String tel){
-            this.tel=tel;
+        public StudentBuilder phone(String phone){
+            this.phone=phone;
+            return this;
+        }
+        public StudentBuilder email(String email){
+            this.email=email;
             return this;
         }
 
@@ -95,14 +103,16 @@ public class Student extends User {
 
     @Override
     public String toString() {
-        return "student{" +
+        return "Student{" +
                 "name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
                 ", grade='" + grade + '\'' +
                 ", classId='" + classId + '\'' +
-                ", tel='" + tel + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
+
     @Override
     public ContentValues toContentValues(){
         return null;
