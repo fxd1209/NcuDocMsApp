@@ -41,7 +41,7 @@ public class TeacherCourseActivity extends BaseActivity {
     public static final String TAG="teacher.TCActivity";
     private int currentSel; //当前点击的课程
     Map<Teacher,List<TeacherCourse>> tCourseListMap;//当前教师选课信息
-    List<TeacherCourse> list=new ArrayList<>();
+    List<TeacherCourse> list;
     GridView courseGirdView;
     Toolbar baseBar;
     TeacherServiceInterface teacherService=new TeacherService();
@@ -124,13 +124,9 @@ public class TeacherCourseActivity extends BaseActivity {
         courseGirdView = (GridView) findViewById(R.id.teacher_course_grid_view);
         tCourseListMap=teacherService.getTeaCourseByTeacherId("18748980084");
         Set<Teacher> teacherSet=tCourseListMap.keySet();
-     
-
-        Map<Teacher,List<TeacherCourse>> tcourseListMap=teacherService.getTeacherCourseByTeacherId("18780451091");
-        Set<Teacher> teacherSet=tcourseListMap.keySet();
-        List<TeacherCourse> list=new ArrayList<>();
         for (Teacher teacher : teacherSet){
             list=tCourseListMap.get(teacher);
+            if (teacher==null || list==null||list.size()<=0) break;
             Log.i(TAG+"教师",teacher.toString());
             for (TeacherCourse tc:list){
                 Log.i(TAG+"课程",tc.toString());
