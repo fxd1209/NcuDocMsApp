@@ -40,8 +40,7 @@ public class BaseActivity extends AppCompatActivity {
         baseBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_teacher_main);
-
+                onBackPressed();
             }
         });
         baseBar.setOnMenuItemClickListener(new BaseToolBarMenuSelectedListener(this));
