@@ -1,5 +1,6 @@
 package com.ncusoft.ncudocmsapp.activitys.teacher;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -77,14 +78,14 @@ public class TeacherCourseActivity extends BaseActivity {
         baseBar.setOnMenuItemClickListener(onMenuItemClickListener);
 
 
-        //测试用
+//        //测试用
 //        ContentValues cvCourse1=new Course.CourseBuilder()
-//                .id("c123")
+//                .id("c789")
 //                .name("高等数学")
 //                .credit("3")
 //                .build().toContentValues();
 //        ContentValues cvCourse2=new Course.CourseBuilder()
-//                .id("c456")
+//                .id("c129")
 //                .name("大学语文")
 //                .credit("2")
 //                .build().toContentValues();

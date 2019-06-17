@@ -1,22 +1,17 @@
 package com.ncusoft.ncudocmsapp.activitys.teacher;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.SimpleAdapter;
 
 import com.ncusoft.ncudocmsapp.R;
-import com.ncusoft.ncudocmsapp.activitys.course.CourseAdapter;
-import com.ncusoft.ncudocmsapp.activitys.course.TeacherCourseAdapter;
+import com.ncusoft.ncudocmsapp.activitys.course.SelectCourseAdapter;
 import com.ncusoft.ncudocmsapp.pojo.Course;
 import com.ncusoft.ncudocmsapp.service.course.CourseService;
 import com.ncusoft.ncudocmsapp.service.course.CourseServiceInterface;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,7 +19,7 @@ public class TeacherSelectCouActivity extends Activity {
     private CourseServiceInterface courseService;
     private GridView gridView;
     private List<Course> courseList;
-    private CourseAdapter courseAdapter;
+    private SelectCourseAdapter courseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +28,7 @@ public class TeacherSelectCouActivity extends Activity {
         gridView = (GridView) findViewById(R.id.teacher_selectc_gridview);
         courseService=new CourseService();
         courseList=courseService.getAllCourseList();
-        courseAdapter=new CourseAdapter(TeacherSelectCouActivity.this,courseList);
+        courseAdapter=new SelectCourseAdapter(TeacherSelectCouActivity.this,courseList);
         gridView.setAdapter(courseAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
