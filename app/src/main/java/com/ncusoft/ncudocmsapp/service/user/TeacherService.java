@@ -1,5 +1,6 @@
 package com.ncusoft.ncudocmsapp.service.user;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -16,6 +17,7 @@ import com.ncusoft.ncudocmsapp.repository.course.StudentCourseDao;
 import com.ncusoft.ncudocmsapp.repository.course.TeacherCourseDao;
 import com.ncusoft.ncudocmsapp.repository.student.StudentDao;
 import com.ncusoft.ncudocmsapp.repository.teacher.TeacherDao;
+import com.ncusoft.ncudocmsapp.utils.VerifyUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -152,6 +154,37 @@ public class TeacherService implements TeacherServiceInterface{
 
         }
         return false;
+    }
+
+    @Override
+    public String inputCheck(Teacher teacher) {
+        if (VerifyUtil.isStrEmpty(teacher.getName()) ||
+                VerifyUtil.isStrEmpty(teacher.getSex()) ||
+                VerifyUtil.isStrEmpty(teacher.getPhone()))
+            return "姓名,性别，联系方式不能为空!";
+        if (!VerifyUtil.isZhName(teacher.getName()))
+            return "请输入合法中文姓名!";
+
+        if (!teacher.getSex().equals("男") && !teacher.getSex().equals("女"))
+            return "性别为男或女";
+
+        if (!VerifyUtil.isMobile(teacher.getPhone()))
+            return "联系方式不合法!";
+
+        //邮箱可以为空，若不为空需要合法
+        if (!VerifyUtil.isStrEmpty(teacher.getEmail())&&
+                !VerifyUtil.isEmail(teacher.getEmail()))
+            return "邮箱不合法!";
+
+        return "SUCCESS";
+    }
+
+    @Override
+    public long updateById(Teacher teacher) {
+        ContentValues contentValues=teacher.toContentValues();
+        contentValues.remove("password"); //教师表中没有这个字段，但是教师pojo中有
+        contentValues.remove("authority");//否则更新出错
+        return teacherDao.update(contentValues);
     }
 
 

@@ -41,4 +41,18 @@ public interface TeacherServiceInterface {
      */
     public boolean selectedCourse(List<TeacherCourse> teaCourseList);
     public boolean selectedCourse(String term,String classCount,Map<String,Course> courseMap);
+
+    /**
+     * 教师输入信息检测,姓名，电话，性别不能为空
+     * @param teacher
+     * @return
+     */
+    public String inputCheck(Teacher teacher);
+
+    /**
+     * 根据ID更新教师数据
+     * @param teacher
+     * @return
+     */
+    public long updateById(Teacher teacher);
 }

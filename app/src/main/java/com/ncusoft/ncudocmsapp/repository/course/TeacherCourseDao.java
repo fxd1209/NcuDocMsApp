@@ -126,6 +126,16 @@ public class TeacherCourseDao implements TableInterface {
         return list;
     }
 
+    @Override
+    public long update(DatabaseHelper databaseHelper, ContentValues contentValues) {
+        return 0;
+    }
+
+    @Override
+    public long update(ContentValues contentValues) {
+        return 0;
+    }
+
     private TeacherCourse cursorToPojo(Cursor cursor){
         return new TeacherCourse.TeacherCourseBuilder()
                 .id(cursor.getString(cursor.getColumnIndex(TeacherCourseDao.id)))

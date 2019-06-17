@@ -104,6 +104,16 @@ public class StudentDao implements TableInterface {
         return list;
     }
 
+    @Override
+    public long update(DatabaseHelper databaseHelper, ContentValues contentValues) {
+        return 0;
+    }
+
+    @Override
+    public long update(ContentValues contentValues) {
+        return 0;
+    }
+
     private Student cursorToPojo(Cursor cursor){
         Student student=new Student();
         student.setId(cursor.getString(cursor.getColumnIndex(StudentDao.id)));
