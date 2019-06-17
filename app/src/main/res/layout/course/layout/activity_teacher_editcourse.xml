@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include
+        layout="@layout/toolbal_base"
+        android:id="@+id/teacher_main_toolbal" /> <!--这个id会代替 toolbal_base里面的id，实际运行的时候是将toolbal_base
+                                                               里面的代码拷贝过来-->
+
+    <ImageView
+        android:id="@+id/teacher_top"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/course_1" />
+
+    <TableLayout
+        android:id="@+id/teacher_main_tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:text="课程号" />
+
+            <EditText
+                android:id="@+id/teacher_editcourse_ID"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+
+                android:text="请输入课程号" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:text="课程名称" />
+
+            <EditText
+                android:id="@+id/teacher_editcourse_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+
+                android:text="请输入课程名称" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:text="学分" />
+
+            <EditText
+                android:id="@+id/teacher_editcourse_grade"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+
+                android:text="请输入学分" />
+        </TableRow>
+
+
+    </TableLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_teacher_editcourse_change"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/selector_button"
+            android:textSize="30dp"
+            android:text="重新编辑" />
+        <Button
+            android:id="@+id/btn_teacher_editcourse_save"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/selector_button"
+            android:textSize="30dp"
+            android:text="保存" />
+        <!--android:background="@color/colorGreen"-->
+    </LinearLayout>
+</LinearLayout>
