@@ -28,6 +28,8 @@
         </activity>
         <activity android:name=".activitys.teacher.TeacherSelectCouActivity">
         </activity>
+        <activity android:name=".activitys.teacher.AdminAddCourseActivity">
+        </activity>
         <!--teacher -->
     </application>
 

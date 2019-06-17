@@ -19,7 +19,8 @@
         android:id="@+id/teacherAddCourseName"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="请输入课程名称"
+        android:hint="请输入课程名称"
+        android:background="@drawable/selector_edittext"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         />
@@ -36,7 +37,8 @@
         android:id="@+id/teacherAddClassNumber"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="请输入班级名称"
+        android:hint="请输入班级名称"
+        android:background="@drawable/selector_edittext"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         />
@@ -53,7 +55,8 @@
         android:id="@+id/teacherAddTime"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="请输入上课时间"
+        android:hint="请输入上课时间"
+        android:background="@drawable/selector_edittext"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         />

@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.activitys.BaseActivity;
-import com.ncusoft.ncudocmsapp.activitys.login.LoginActivity;
 
 public class TeacherMainActivity extends BaseActivity {
 
@@ -80,6 +79,7 @@ public class TeacherMainActivity extends BaseActivity {
                     startActivity(new Intent().setClass(TeacherMainActivity.this, TeacherSelectCouActivity.class));
                     break;
                 case R.id.btn_teacher_addCourse:
+                    startActivity(new Intent().setClass(TeacherMainActivity.this, AdminAddCourseActivity.class));
                     break;
                 case R.id.btn_teacher_info:
                     break;
