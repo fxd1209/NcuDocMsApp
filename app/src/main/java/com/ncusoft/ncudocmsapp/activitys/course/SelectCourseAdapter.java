@@ -2,7 +2,6 @@ package com.ncusoft.ncudocmsapp.activitys.course;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,15 +13,19 @@ import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.pojo.Course;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class CourseAdapter extends BaseAdapter {
+public class SelectCourseAdapter extends BaseAdapter {
+    private int currentSel=-1; //当前选择项
+    private int count_0_Position=0;  //记录0的次数，具体见getView。
     private Context context;//声明适配器中引用的上下文
     private LayoutInflater layoutInflater; //布局加载器
-    private List<Course> courseList;
-    private CourseAdapter.ViewHolder viewHolder=null;
+    private SelectCourseAdapter.ViewHolder viewHolder=null;
 
-    private int currentSel=-1; //当前选择项
+    private List<Course> courseList;  //所有课程
+    private Map<String,Course> mapSelected; //记录被选中的课程
     private ArrayList<Boolean> isSelectedList; //标记点击的状态
 
     private int[] imgId={
@@ -31,10 +34,11 @@ public class CourseAdapter extends BaseAdapter {
             R.drawable.course_5,R.drawable.course_6,
             R.drawable.course_7,R.drawable.course_8};
 
-    public CourseAdapter(Context context, List<Course> courseList){
+    public SelectCourseAdapter(Context context, List<Course> courseList){
         this.context=context;
         this.courseList=courseList;
         this.layoutInflater=LayoutInflater.from(context);
+        this.mapSelected=new HashMap<>();
         resetIsSelectedList();
 
     }
@@ -88,34 +92,54 @@ public class CourseAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         if (convertView==null){
             convertView=layoutInflater.inflate(R.layout.course_item,null);
-            viewHolder=new CourseAdapter.ViewHolder(convertView);
+            viewHolder=new SelectCourseAdapter.ViewHolder(convertView);
             convertView.setTag(viewHolder);
         }else{
-            viewHolder=(CourseAdapter.ViewHolder)convertView.getTag();
+            viewHolder=(SelectCourseAdapter.ViewHolder)convertView.getTag();
         }
-        Log.i("posit:",String.valueOf(position));
-        //根据当前是否选中状态来改变颜色
-        if (currentSel==position){
-
-            if (isSelectedList.get(position)){
-                convertView.setBackgroundColor(Color.TRANSPARENT);
-                isSelectedList.set(position,false);
-            } else {
-                convertView.setBackgroundColor(Color.BLUE);
-                isSelectedList.set(position,true);
-            }
-            currentSel=-1;
-        }
-
-        viewHolder.imgImgV.setImageResource(imgId[position%7]);
+        viewHolder.imgImgV.setImageResource(imgId[position%7+1]);
         viewHolder.courseIdTxtV.setText(courseList.get(position).getId());
         viewHolder.courseNameTxtV.setText(courseList.get(position).getName());
-
+        //TODO:疑惑，position为0的时候会进入两次，也就是返回两次convertView,当点击第一个的时
+        // 候，修改了背景，但是第二次返回的时候是又换成了原来的。
+        //处理为0的时候
+        if (position==0 && currentSel==position){
+            count_0_Position++;
+            if (count_0_Position==2){
+                setClickItemBack(position);
+                addSelectedCourse(position);
+                currentSel=-1;
+                count_0_Position=0;
+            }
+        }
+        //根据当前是否选中状态来改变颜色
+        if (position!=0 && currentSel==position){
+            setClickItemBack(position);
+            addSelectedCourse(position);
+            currentSel=-1;
+        }
         return convertView;
     }
 
+    public void setClickItemBack(int position){
+        if (isSelectedList.get(position)){
+            viewHolder.imgImgV.setBackgroundColor(Color.TRANSPARENT);
+            isSelectedList.set(position,false);
+        } else {
+            viewHolder.imgImgV.setBackgroundColor(Color.BLUE);
+            isSelectedList.set(position,true);
+        }
+    }
+    public void addSelectedCourse(int position){
+        Course temp=courseList.get(position);
+        mapSelected.put(temp.getId(),temp);
+    }
+    public Map<String,Course> getSelectedCourse(){
+        return mapSelected;
+    }
     class ViewHolder{
         private ImageView imgImgV;
         private TextView courseIdTxtV;
