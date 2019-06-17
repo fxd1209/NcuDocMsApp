@@ -32,4 +32,11 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+
+    <string-array name="teacher_stuadd_post">
+        <item>班长</item>
+        <item>副班长</item>
+        <item>普通学生</item>
+
+    </string-array>
 </resources>

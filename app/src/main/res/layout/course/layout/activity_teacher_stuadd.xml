@@ -20,7 +20,7 @@
         <TableLayout
             android:id="@+id/teacher_main_tableLayout"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="300dp">
 
             <TableRow>
 
@@ -39,19 +39,35 @@
             </TableRow>
 
             <TableRow>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_centerVertical="true"
                     android:text="性别" />
-
-                <EditText
+                <RadioGroup
                     android:id="@+id/teacher_addstu_sex"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="300dp"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="40dp"
+                    android:textSize="20sp"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/teacher_addstu_sex_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:checked="true"
+                        android:text="男"/>
+                    <RadioButton
+                        android:id="@+id/teacher_addstu_sex_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:text="女"/>
+                </RadioGroup>
 
-                    android:text="请输入学生性别" />
+
             </TableRow>
 
             <TableRow>
@@ -111,12 +127,19 @@
                     android:layout_centerVertical="true"
                     android:text="职称" />
 
-                <EditText
-                    android:id="@+id/teacher_addstu_protitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-
-                    android:text="请输入职务" />
+                <Spinner
+                    android:id="@+id/spinner_stuadd_term"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:entries="@array/teacher_stuadd_post">
+                    <!--也可以用代码绑定下拉框值-->
+                    <!--//    需要适配器布局-->
+                    <!--//    private String[] termList={"2018-2019-1","2018-2019-2","2019-2020-1","2019-2020-1"};-->
+                    <!--//    private String[] classCountList={"1","2","3","4","5"};-->
+                    <!--//    private ArrayAdapter<String> termSpinAdaper=-->
+                    <!--//            new ArrayAdapter<String>(TeacherSelectCouActivity.this,"适配器布局",termList);-->
+                </Spinner>
             </TableRow>
 
 
