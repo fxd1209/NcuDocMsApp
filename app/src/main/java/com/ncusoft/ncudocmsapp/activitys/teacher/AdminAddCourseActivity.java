@@ -67,6 +67,9 @@ public class AdminAddCourseActivity extends BaseActivity {
                     ToastUtil.initToast(AdminAddCourseActivity.this, ToastUtil.ToastType.SUCCESS,
                             strTip, Toast.LENGTH_LONG,new Point(0,0))
                             .show();
+                    editCourseId.setText("");
+                    editCourseName.setText("");
+                    editCourseCredit.setText("");
                 }else {
                     String strTip="添加"+courseName+"("+courseId+")"+courseCredit+"学分失败,可能该课程ID已存在!";
                     ToastUtil.initToast(AdminAddCourseActivity.this, ToastUtil.ToastType.FAIL,
