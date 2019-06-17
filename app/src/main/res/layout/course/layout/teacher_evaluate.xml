@@ -6,7 +6,7 @@
 
     <include
         layout="@layout/toolbal_base"
-        android:id="@+id/teacher_addCourseTop" />
+        android:id="@+id/teacher_main_toolbal" />
 
     <TableLayout
         android:id="@+id/teacher_main_tableLayout"
