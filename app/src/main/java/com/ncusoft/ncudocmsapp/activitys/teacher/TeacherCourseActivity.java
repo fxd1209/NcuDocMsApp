@@ -1,5 +1,6 @@
 package com.ncusoft.ncudocmsapp.activitys.teacher;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -61,12 +62,13 @@ public class TeacherCourseActivity extends BaseActivity {
         setContentView(R.layout.activity_teacher_course);
         baseBar =(Toolbar) findViewById(R.id.teacher_main_toolbal);
 
-        baseBar.setLogo(R.drawable.bianji);
-        baseBar.setTitle("  Material Design ToolBar");
-        baseBar.setSubtitle("  ToolBar subtitle");
+        //baseBar.setLogo(R.drawable.wode);
+
+       baseBar.setTitle(" 我的课程");
+//        baseBar.setSubtitle("  ToolBar subtitle");
         setSupportActionBar(baseBar);
 
-        baseBar.setNavigationIcon(R.drawable.bianji);
+        baseBar.setNavigationIcon(R.drawable.bianji02);
         baseBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
