@@ -97,6 +97,16 @@ public class CourseDao implements TableInterface {
         return list;
     }
 
+    @Override
+    public long update(DatabaseHelper databaseHelper, ContentValues contentValues) {
+        return 0;
+    }
+
+    @Override
+    public long update(ContentValues contentValues) {
+        return 0;
+    }
+
     private Course cursorToPojo(Cursor cursor){
         return new Course.CourseBuilder()
                 .id(cursor.getString(cursor.getColumnIndex(CourseDao.id)))

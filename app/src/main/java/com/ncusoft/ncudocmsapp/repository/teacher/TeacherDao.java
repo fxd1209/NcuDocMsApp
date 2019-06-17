@@ -105,6 +105,19 @@ public class TeacherDao implements TableInterface {
         return list;
     }
 
+    @Override
+    public long update(DatabaseHelper databaseHelper, ContentValues contentValues) {
+        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        long id=db.update(TeacherDao.tableName, contentValues, TeacherDao.id+"=?", new String[]{contentValues.getAsString(TeacherDao.id)});
+        db.close();
+        return id;
+    }
+
+    @Override
+    public long update(ContentValues contentValues) {
+        return update(databaseHelper,contentValues);
+    }
+
     private Teacher cursorToPojo(Cursor cursor){
         Teacher teacher=new Teacher();
         teacher.setId(cursor.getString(cursor.getColumnIndex(TeacherDao.id)));

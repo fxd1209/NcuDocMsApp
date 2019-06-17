@@ -18,4 +18,13 @@ public interface TableInterface {
     public Object queryById(DatabaseHelper databaseHelper,String id);
     public List<?> queryAll(DatabaseHelper databaseHelper);
 
+    /**
+     * 更新数据
+     * @param databaseHelper
+     * @param contentValues
+     * @return
+     */
+    public long update(DatabaseHelper databaseHelper,ContentValues contentValues);
+    public long update(ContentValues contentValues);
+
 }

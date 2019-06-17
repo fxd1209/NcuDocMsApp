@@ -108,6 +108,16 @@ public class UserDao implements TableInterface {
         return list;
     }
 
+    @Override
+    public long update(DatabaseHelper databaseHelper, ContentValues contentValues) {
+        return 0;
+    }
+
+    @Override
+    public long update(ContentValues contentValues) {
+        return 0;
+    }
+
     private User cursorToPojo(Cursor cursor){
             User user=new User();
             user.setId(cursor.getString(cursor.getColumnIndex(UserDao.id)));
