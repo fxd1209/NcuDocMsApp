@@ -11,7 +11,7 @@ import com.ncusoft.ncudocmsapp.repository.TableInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDao implements TableInterface {
+public class UserDao implements TableInterface{
 
     private static UserDao dao;
     private static DatabaseHelper databaseHelper;
@@ -61,7 +61,17 @@ public class UserDao implements TableInterface {
     }
 
     @Override
-    public int delete(String table, String whereClause, String[] whereArgs) {
+    public int delete(DatabaseHelper databaseHelper,String table, String whereClause, String[] whereArgs) {
+        return 0;
+    }
+
+    @Override
+    public int deleteById(DatabaseHelper databaseHelper, String id) {
+        return 0;
+    }
+
+    @Override
+    public int deleteById(String id) {
         return 0;
     }
 

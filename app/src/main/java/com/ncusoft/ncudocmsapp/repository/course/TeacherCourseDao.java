@@ -13,7 +13,7 @@ import com.ncusoft.ncudocmsapp.repository.TableInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeacherCourseDao implements TableInterface {
+public class TeacherCourseDao implements TableInterface{
 
     private static TeacherCourseDao dao;
     private static DatabaseHelper databaseHelper;
@@ -69,15 +69,37 @@ public class TeacherCourseDao implements TableInterface {
     }
 
     @Override
-    public int delete(String table, String whereClause, String[] whereArgs) {
-        return 0;
+    public int delete(DatabaseHelper databaseHelper,String table, String whereClause, String[] whereArgs) {
+        SQLiteDatabase db=databaseHelper.getWritableDatabase();
+        int num=db.delete(table,whereClause,whereArgs);
+        db.close();
+        return num;
     }
 
+    @Override
+    public int deleteById(DatabaseHelper databaseHelper, String id) {
+        return delete(databaseHelper,TeacherCourseDao.tableName,
+                TeacherCourseDao.id+"=?",new String[]{id});
+    }
+
+    @Override
+    public int deleteById(String id) {
+        return deleteById(databaseHelper,id);
+    }
+
+    public int deleteByTidCidClassCount(String tId,String cId,String classCount){
+        String whereClause=TeacherCourseDao.teacherId+
+                "=? and "+TeacherCourseDao.courseId+
+                "=? and "+TeacherCourseDao.classCount+"=?";
+        String[] whereArgs=new String[]{tId,cId,classCount};
+        return delete(databaseHelper,TeacherCourseDao.tableName,whereClause,whereArgs);
+    }
     /**
      * 通过主键查询
      * @param databaseHelper
      * @param id
      * @return
+     * TODO:以下代码可以根据deleteById模式来重构
      */
     @Override
     public TeacherCourse queryById(DatabaseHelper databaseHelper, String id){

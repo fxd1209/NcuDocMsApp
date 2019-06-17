@@ -55,4 +55,5 @@ public interface TeacherServiceInterface {
      * @return
      */
     public long updateById(Teacher teacher);
+
 }

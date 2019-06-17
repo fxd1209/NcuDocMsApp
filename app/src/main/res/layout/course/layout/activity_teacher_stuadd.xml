@@ -67,8 +67,7 @@
                     android:layout_width="match_parent"
                     android:inputType="phone"
                     android:layout_height="40dp"
-
-                    android:text="请输入手机号" />
+                    android:hint="请输入手机号"/>
             </TableRow>
 
             <TableRow>

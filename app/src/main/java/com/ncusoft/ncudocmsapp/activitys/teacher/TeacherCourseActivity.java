@@ -1,7 +1,10 @@
 package com.ncusoft.ncudocmsapp.activitys.teacher;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -10,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.activitys.BaseActivity;
@@ -21,8 +25,11 @@ import com.ncusoft.ncudocmsapp.pojo.TeacherCourse;
 import com.ncusoft.ncudocmsapp.repository.course.CourseDao;
 import com.ncusoft.ncudocmsapp.repository.course.StudentCourseDao;
 import com.ncusoft.ncudocmsapp.repository.course.TeacherCourseDao;
+import com.ncusoft.ncudocmsapp.service.course.CourseService;
+import com.ncusoft.ncudocmsapp.service.course.CourseServiceInterface;
 import com.ncusoft.ncudocmsapp.service.user.TeacherService;
 import com.ncusoft.ncudocmsapp.service.user.TeacherServiceInterface;
+import com.ncusoft.ncudocmsapp.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,11 +40,13 @@ public class TeacherCourseActivity extends BaseActivity {
 
     public static final String TAG="teacher.TCActivity";
     private int currentSel; //当前点击的课程
-    Map<Teacher,List<TeacherCourse>> tCourseListMap;//当前教师选课信息
-    List<TeacherCourse> list;
     GridView courseGirdView;
-    Toolbar baseBar;
+    TeacherCourseAdapter tcAdapter;
+    List<TeacherCourse> list;
+    Map<Teacher,List<TeacherCourse>> tCourseListMap;//当前教师选课信息
+
     TeacherServiceInterface teacherService=new TeacherService();
+    CourseServiceInterface courseService=new CourseService();
 
     //TODO 测试用
     CourseDao courseDao=CourseDao.getInstance();
@@ -125,6 +134,7 @@ public class TeacherCourseActivity extends BaseActivity {
 //        studentCourseDao.insert(cvSc4);
 
         courseGirdView = (GridView) findViewById(R.id.teacher_course_grid_view);
+
         tCourseListMap=teacherService.getTeaCourseByTeacherId("18748980084");
         Set<Teacher> teacherSet=tCourseListMap.keySet();
         for (Teacher teacher : teacherSet){
@@ -135,7 +145,8 @@ public class TeacherCourseActivity extends BaseActivity {
                 Log.i(TAG+"课程",tc.toString());
             }
         }
-        courseGirdView.setAdapter(new TeacherCourseAdapter(TeacherCourseActivity.this,list));
+        tcAdapter=new TeacherCourseAdapter(TeacherCourseActivity.this,list);
+        courseGirdView.setAdapter(tcAdapter);
         registerForContextMenu(courseGirdView);
         courseGirdView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -177,6 +188,43 @@ public class TeacherCourseActivity extends BaseActivity {
             case 2: //点击编辑课程
                 break;
             case 3: //点击删除课程
+                //可以设置三个按钮
+                AlertDialog dlg
+                        =new AlertDialog.Builder(TeacherCourseActivity.this)
+                        .setIcon(R.drawable.icon_doubt)
+                        .setTitle("警告")
+                        .setMessage("确定删除吗？")
+                        .setPositiveButton("确定删除", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                TeacherCourse tcList=list.get(currentSel);
+                                if (0==courseService.deleteTeacherCourse(tcList)){
+                                    ToastUtil.initToast(TeacherCourseActivity.this,
+                                            ToastUtil.ToastType.FAIL,"删除失败!",
+                                            Toast.LENGTH_LONG,new Point(0,0)).show();
+                                }else{
+                                    ToastUtil.initToast(TeacherCourseActivity.this,
+                                            ToastUtil.ToastType.SUCCESS,"删除成功!",
+                                            Toast.LENGTH_LONG,new Point(0,0)).show();
+                                    //移除数据
+                                    list.remove(currentSel);
+                                    tcAdapter.remove(currentSel);
+                                    tcAdapter.refreshDataSet();
+
+                                }
+                            }
+                        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                System.out.println("c");
+                            }
+                        }).setNeutralButton("算了", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                System.out.println("a");
+                            }
+                        }).show();
+
                 break;
             default:break;
         }
