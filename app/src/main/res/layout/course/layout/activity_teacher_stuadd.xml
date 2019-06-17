@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include
+        layout="@layout/toolbal_base"
+        android:id="@+id/teacher_main_toolbal" /> <!--这个id会代替 toolbal_base里面的id，实际运行的时候是将toolbal_base
+                                                               里面的代码拷贝过来-->
+
+
+
+
+        <ImageView
+            android:id="@+id/teacher_top"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/student" />
+
+        <TableLayout
+            android:id="@+id/teacher_main_tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:text="姓名" />
+
+                <EditText
+                    android:id="@+id/teacher_addstu_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+
+                    android:text="请输入学生名称" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:text="性别" />
+
+                <EditText
+                    android:id="@+id/teacher_addstu_sex"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+
+                    android:text="请输入学生性别" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:text="手机号" />
+
+                <EditText
+                    android:id="@+id/teacher_addstu_phonenumber"
+                    android:layout_width="match_parent"
+                    android:inputType="phone"
+                    android:layout_height="40dp"
+
+                    android:text="请输入手机号" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:text="班级" />
+
+                <EditText
+                    android:id="@+id/teacher_addstu_classnumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="请输入班级" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:text="电子邮箱" />
+
+                <EditText
+                    android:id="@+id/teacher_addstu_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:inputType="textEmailAddress"
+
+                    android:text="请输入电子邮箱" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:text="职称" />
+
+                <EditText
+                    android:id="@+id/teacher_addstu_protitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+
+                    android:text="请输入职务" />
+            </TableRow>
+
+
+        </TableLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_teacher_addstu_change"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/selector_button"
+            android:textSize="30dp"
+            android:text="重新编辑" />
+        <Button
+            android:id="@+id/btn_teacher_addstu_save"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/selector_button"
+            android:textSize="30dp"
+            android:text="保存" />
+        <!--android:background="@color/colorGreen"-->
+    </LinearLayout>
+</LinearLayout>
