@@ -16,7 +16,7 @@
         />
 
     <EditText
-        android:id="@+id/teacherAddCourseName"
+        android:id="@+id/adminAddCourseName"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:hint="请输入课程名称"
@@ -34,7 +34,7 @@
         />
 
     <EditText
-        android:id="@+id/teacherAddClassNumber"
+        android:id="@+id/adminAddClassNumber"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:hint="请输入班级名称"
@@ -52,7 +52,7 @@
         />
 
     <EditText
-        android:id="@+id/teacherAddTime"
+        android:id="@+id/adminAddTime"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:hint="请输入上课时间"
