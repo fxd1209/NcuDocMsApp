@@ -13,61 +13,52 @@
         android:scaleType="fitXY"
         android:src="@drawable/student" />
     <TextView
-
         android:layout_height="30dp"
         android:layout_width="match_parent"
         android:text="课程号"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        />
+        android:layout_marginRight="20dp" />
 
     <EditText
-        android:id="@+id/adminAddCourseNumber"
+        android:id="@+id/adminAddCourseId"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:hint="请输入课程号"
         android:background="@drawable/selector_edittext"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        />
+        android:layout_marginRight="20dp" />
     <TextView
-
         android:layout_height="30dp"
         android:layout_width="match_parent"
         android:text="课程名称"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        />
+        android:layout_marginRight="20dp" />
 
     <EditText
-        android:id="@+id/adminAddClassName"
+        android:id="@+id/adminAddCourseName"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:hint="请输入课程名称"
         android:background="@drawable/selector_edittext"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        />
+        android:layout_marginRight="20dp" />
     <TextView
-
         android:layout_height="30dp"
         android:layout_width="match_parent"
         android:text="学分"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        />
+        android:layout_marginRight="20dp" />
 
     <EditText
-        android:id="@+id/adminAddGrade"
+        android:id="@+id/adminAddCredit"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:hint="请输入学分"
         android:background="@drawable/selector_edittext"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        />
+        android:layout_marginRight="20dp" />
     <Button
-        android:id="@+id/btn_teacher_addCourse_enter"
+        android:id="@+id/btn_admin_addCourse_enter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="确定"

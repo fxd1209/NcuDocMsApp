@@ -11,4 +11,9 @@ public class CourseService implements CourseServiceInterface{
     public List<Course> getAllCourseList() {
         return courseDao.queryAll();
     }
+
+    @Override
+    public long addCourse(Course course) {
+        return courseDao.insert(course.toContentValues());
+    }
 }

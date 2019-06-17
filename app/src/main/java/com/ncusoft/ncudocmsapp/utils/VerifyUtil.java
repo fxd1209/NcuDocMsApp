@@ -16,6 +16,16 @@ public class VerifyUtil {
 
 
     /**
+     * 数字正则（包含整数或小数）
+     */
+    public static final String REGEX_NUM="^(\\-|\\+)?\\d+(\\.\\d+)?$";
+
+    /**
+     * 由数字，字母或下划线组成
+     */
+    public static final String REGEX_NUMORLETTER="^[0-9a-zA-Z_]{1,}$";
+
+    /**
      * 正则表达式：验证学号
      */
     public static final String REGEX_STUDENTID = "^[\\d]\\d{9,15}$";
@@ -65,6 +75,30 @@ public class VerifyUtil {
      */
     public static final String REGEX_IP_ADDR = "(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)";
 
+    /**
+     * 是否是数组(包含整数或者小数）
+     * @param str
+     * @return
+     */
+    public static boolean isNum(String str){
+        return Pattern.matches(REGEX_NUM,str);
+    }
+    /**
+     * 字符串是否为空
+     * return 为空返回true
+     */
+    public static boolean isStrEmpty(String str){
+        return (str=="" || str.equals("") || str==null);
+    }
+
+    /**
+     * 由字母，下划线，或数字组成
+     * @param str
+     * @return
+     */
+    public static boolean isConsistsOfNum_Letter(String str){
+        return Pattern.matches(REGEX_NUMORLETTER,str);
+    }
     /**
      * 校验学号
      * @param studentId 学号

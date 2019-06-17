@@ -37,6 +37,5 @@ public class TeacherInfoActivity extends BaseActivity {
         editPhone.setText(teacher.getPhone());
         editEmail.setText(teacher.getEmail());
         editProTitle.setText(teacher.getProTitle());
-
     }
 }
