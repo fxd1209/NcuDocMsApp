@@ -110,7 +110,6 @@ public class SelectCourseAdapter extends BaseAdapter {
             count_0_Position++;
             if (count_0_Position==2){
                 setClickItemBack(position);
-                addSelectedCourse(position);
                 currentSel=-1;
                 count_0_Position=0;
             }
@@ -118,7 +117,6 @@ public class SelectCourseAdapter extends BaseAdapter {
         //根据当前是否选中状态来改变颜色
         if (position!=0 && currentSel==position){
             setClickItemBack(position);
-            addSelectedCourse(position);
             currentSel=-1;
         }
         return convertView;
@@ -127,15 +125,21 @@ public class SelectCourseAdapter extends BaseAdapter {
     public void setClickItemBack(int position){
         if (isSelectedList.get(position)){
             viewHolder.imgImgV.setBackgroundColor(Color.TRANSPARENT);
+            removeSelectedCourse(position); //移除
             isSelectedList.set(position,false);
         } else {
             viewHolder.imgImgV.setBackgroundColor(Color.BLUE);
+            addSelectedCourse(position); //添加
             isSelectedList.set(position,true);
         }
     }
     public void addSelectedCourse(int position){
         Course temp=courseList.get(position);
         mapSelected.put(temp.getId(),temp);
+    }
+    public void removeSelectedCourse(int position){
+        if (mapSelected.size()>0)
+            mapSelected.remove(courseList.get(position).getId());//map的键是课程号
     }
     public Map<String,Course> getSelectedCourse(){
         return mapSelected;
