@@ -82,6 +82,7 @@ public class TeacherMainActivity extends BaseActivity {
                     startActivity(new Intent().setClass(TeacherMainActivity.this, AdminAddCourseActivity.class));
                     break;
                 case R.id.btn_teacher_info:
+                    startActivity(new Intent().setClass(TeacherMainActivity.this, TeacherInfoActivity.class));
                     break;
                     default:
             }
