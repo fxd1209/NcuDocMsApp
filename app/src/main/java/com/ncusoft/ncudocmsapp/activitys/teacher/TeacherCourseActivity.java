@@ -1,6 +1,5 @@
 package com.ncusoft.ncudocmsapp.activitys.teacher;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
 import com.ncusoft.ncudocmsapp.R;
@@ -41,43 +39,18 @@ public class TeacherCourseActivity extends BaseActivity {
     Toolbar baseBar;
     TeacherServiceInterface teacherService=new TeacherService();
 
-
-
     //TODO 测试用
     CourseDao courseDao=CourseDao.getInstance();
     TeacherCourseDao teacherCourseDao=TeacherCourseDao.getInstance();
     StudentCourseDao studentCourseDao=StudentCourseDao.getInstance();
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //加载菜单文件
-        getMenuInflater().inflate(R.menu.menu_toolbar_base, menu);
-        return true;
-    }
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_course);
-        baseBar =(Toolbar) findViewById(R.id.teacher_main_toolbal);
-
-        //baseBar.setLogo(R.drawable.wode);
-
-       baseBar.setTitle(" 我的课程");
-//        baseBar.setSubtitle("  ToolBar subtitle");
-        setSupportActionBar(baseBar);
-
-        baseBar.setNavigationIcon(R.drawable.bianji02);
-        baseBar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getApplicationContext(), "This is a Toast", Toast.LENGTH_SHORT).show();
-            }
-        });
-        baseBar.setOnMenuItemClickListener(onMenuItemClickListener);
-
+        initBaseToolbar("我的课程");
 
 //        //测试用
 //        ContentValues cvCourse1=new Course.CourseBuilder()
@@ -210,29 +183,31 @@ public class TeacherCourseActivity extends BaseActivity {
         return  super.onContextItemSelected(item);
     }
 
-
-    private Toolbar.OnMenuItemClickListener onMenuItemClickListener=new Toolbar.OnMenuItemClickListener() {
-        @Override
-        public boolean onMenuItemClick(MenuItem menuItem) {
-            switch (menuItem.getItemId()){//
-                // case R.id.action_search://因为使用android.support.v7.widget.SearchView类，可以在
-                // onCreateOptionsMenu(Menu menu)中直接设置监听事件//
-                // Snackbar.make(toolbar,"Click Search",Snackbar.LENGTH_SHORT).show();//
-                // break;
-                case R.id.action_share:
-                    Toast.makeText(getApplicationContext(), "This is a Toast", Toast.LENGTH_SHORT).show();
-                    break;
-                    case R.id.action_more:
-                        Toast.makeText(getApplicationContext(), "This is a Toast", Toast.LENGTH_SHORT).show();
-                        break;
-            }
-            return true;
-        }
-    };
 }
 
 
-
+/***
+ * 设置action bar ，需要主题样式里面有actionbar
+ */
+//  actionBar=getActionBar();
+//          actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+//          actionBar.setCustomView(R.layout.toolbal_base);//自定义ActionBar布局
+//          actionBar.getCustomView().setOnClickListener(new View.OnClickListener() {//监听事件
+//@Override
+//public void onClick(View arg0) {
+//        switch (arg0.getId()) {
+////                    case R.id.back:
+////                        showToast(R.string.finish);
+////                        finish();
+////                        break;
+//default:
+//        break;
+//        }
+//        }
+//        });
+/*******************
+ *end
+ *****************/
 
 
 

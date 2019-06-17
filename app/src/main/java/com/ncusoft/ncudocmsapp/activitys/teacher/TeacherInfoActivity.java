@@ -10,5 +10,6 @@ public class TeacherInfoActivity extends BaseActivity {
     public void onCreate(Bundle saveInstanceState){
         super.onCreate(saveInstanceState);
         setContentView(R.layout.teacher_info);
+        initBaseToolbar("个人信息");
     }
 }
