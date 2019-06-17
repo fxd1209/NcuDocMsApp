@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.R;
+import com.ncusoft.ncudocmsapp.activitys.BaseActivity;
 import com.ncusoft.ncudocmsapp.activitys.course.SelectCourseAdapter;
 import com.ncusoft.ncudocmsapp.pojo.Course;
 import com.ncusoft.ncudocmsapp.pojo.User;
@@ -27,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class TeacherSelectCouActivity extends Activity {
+public class TeacherSelectCouActivity extends BaseActivity {
     private CourseServiceInterface courseService;
     private TeacherServiceInterface teacherService;
     private GridView gridView;
@@ -43,11 +44,13 @@ public class TeacherSelectCouActivity extends Activity {
     private String classCount;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_selectcourse);
+        initBaseToolbar("选择课程");
         initData();
         initBindListener();
+
 
 //        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
