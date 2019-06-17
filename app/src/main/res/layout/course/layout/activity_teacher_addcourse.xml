@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include
+        layout="@layout/toolbal_base"
+        android:id="@+id/teacher_addCourseTop" />
+    <TextView
+
+        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:text="课程名称"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+    <EditText
+        android:id="@+id/teacherAddCourseName"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="请输入课程名称"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+    <TextView
+
+        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:text="班级"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+    <EditText
+        android:id="@+id/teacherAddClassNumber"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="请输入班级名称"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+    <TextView
+
+        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:text="时间"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+    <EditText
+        android:id="@+id/teacherAddTime"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="请输入上课时间"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+    <Button
+        android:id="@+id/btn_teacher_addCourse_enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+</LinearLayout>
