@@ -18,7 +18,7 @@
     <EditText
         android:id="@+id/adminAddCourseName"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:hint="请输入课程名称"
         android:background="@drawable/selector_edittext"
         android:layout_marginLeft="20dp"
@@ -36,7 +36,7 @@
     <EditText
         android:id="@+id/adminAddClassNumber"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:hint="请输入班级名称"
         android:background="@drawable/selector_edittext"
         android:layout_marginLeft="20dp"
@@ -54,7 +54,7 @@
     <EditText
         android:id="@+id/adminAddTime"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:hint="请输入上课时间"
         android:background="@drawable/selector_edittext"
         android:layout_marginLeft="20dp"
