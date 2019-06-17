@@ -1,25 +1,23 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <!--搜索菜单-->
-    <item
-        android:id="@+id/action_search"
-        android:icon="@drawable/bianji"
-        android:orderInCategory="80"
-        android:title="search"
-        app:actionViewClass="android.support.v7.widget.SearchView"
-        app:showAsAction="ifRoom" />
-    <!--分享菜单-->
-    <item
-        android:id="@+id/action_share"
-        android:icon="@drawable/dianzan"
-        android:orderInCategory="90"
-        android:title="share"
-        app:showAsAction="ifRoom" />
-    <!--更多菜单-->
-    <item
-        android:id="@+id/action_more"
-        android:icon="@drawable/icon_doubt"
-        android:orderInCategory="100"
-        android:title="more"
-        app:showAsAction="ifRoom" />
+    <item android:id="@+id/menu_student_myclass"
+        app:showAsAction="never"
+        android:title="我的课程"/>
+    <item android:id="@+id/menu_student_selectclass"
+        app:showAsAction="never"
+        android:title="选择课程"/>
+    <item android:id="@+id/menu_student_addclass"
+        app:showAsAction="never"
+        android:title="添加课程"/>
+    <item android:id="@+id/menu_student_mymessage"
+        app:showAsAction="never"
+        android:title="个人信息"/>
+    <item android:id="@+id/menu_student_notice"
+        app:showAsAction="never"
+        android:title="信息通知"/>
+    <item android:id="@+id/menu_student_appraise"
+        app:showAsAction="never"
+        android:title="老师评价"/>
 </menu>

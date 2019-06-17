@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbal_base"
+        android:id="@+id/student_main_toolbal" /> <!--这个id会代替 toolbal_base里面的id，实际运行的时候是将toolbal_base
+                                                               里面的代码拷贝过来-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/bg_title01"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <GridView
+            android:id="@+id/student_course_grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2"
+            android:columnWidth="90dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="10dp"
+            android:cacheColorHint="#00000000"
+            android:listSelector="#00000000"
+            android:scrollbars="none"
+            android:fadeScrollbars="true"
+            android:fastScrollEnabled="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            >
+        </GridView>
+
+    </LinearLayout>
+
+</LinearLayout>

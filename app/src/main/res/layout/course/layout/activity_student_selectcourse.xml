@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include
+        layout="@layout/toolbal_base"
+        android:id="@+id/student_main_toolbal" /><!--这个id会代替 toolbal_base里面的id，实际运行的时候是将toolbal_base
+                                                               里面的代码拷贝过来-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_title01"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:text="学期:"/>
+        <Spinner
+            android:id="@+id/spinner_stu_selectCou_term"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:entries="@array/student_selectCour_term">
+            <!--也可以用代码绑定下拉框值-->
+            <!--//    需要适配器布局-->
+            <!--//    private String[] termList={"2018-2019-1","2018-2019-2","2019-2020-1","2019-2020-1"};-->
+            <!--//    private String[] classCountList={"1","2","3","4","5"};-->
+            <!--//    private ArrayAdapter<String> termSpinAdaper=-->
+            <!--//            new ArrayAdapter<String>(TeacherSelectCouActivity.this,"适配器布局",termList);-->
+        </Spinner>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:text="选班:"/>
+        <Spinner
+            android:id="@+id/spinner_stu_selectCou_classCount"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="0.5"
+            android:entries="@array/student_selectCour_classCount">
+        </Spinner>
+        <ImageButton
+            android:id="@+id/btn_student_sureSelCourse"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:src="@drawable/icon_add"
+            android:background="#00000000"
+            android:scaleType="centerInside"
+            android:layout_marginEnd="0dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <GridView
+            android:id="@+id/student_selectc_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2"
+            android:columnWidth="90dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="10dp"
+            android:cacheColorHint="#00000000"
+            android:listSelector="#00000000"
+            android:scrollbars="none"
+            android:fadeScrollbars="true"
+            android:fastScrollEnabled="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+        </GridView>
+
+    </LinearLayout>
+
+
+
+    <!--<GridView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:numColumns="2"-->
+    <!--android:columnWidth="90dp"-->
+    <!--android:stretchMode="columnWidth"  //缩放与列宽大小同步-->
+    <!--android:verticalSpacing="10dp"-->
+    <!--android:horizontalSpacing="10dp"-->
+    <!--android:cacheColorHint="#00000000" //去除拖动时默认的黑色背景-->
+    <!--android:listSelector="#00000000" //去除选中时的黄色底色-->
+    <!--android:scrollbars="none" //隐藏GridView的滚动条-->
+    <!--android:fadeScrollbars="true"  //设置为true就可以实现滚动条的自动隐藏和显示-->
+    <!--android:fastScrollEnabled="true" /GridView出现快速滚动的按钮(至少滚动4页才会显示)-->
+    <!--&gt;-->
+    <!--</GridView>-->
+</LinearLayout>

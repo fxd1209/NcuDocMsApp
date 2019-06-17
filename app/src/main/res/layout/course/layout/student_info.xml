@@ -5,7 +5,7 @@
     android:orientation="vertical">
     <include
         layout="@layout/toolbal_base"
-        android:id="@+id/teacher_main_toolbal" /> <!--这个id会代替 toolbal_base里面的id，实际运行的时候是将toolbal_base
+        android:id="@+id/student_main_toolbal" /> <!--这个id会代替 toolbal_base里面的id，实际运行的时候是将toolbal_base
                                                                里面的代码拷贝过来-->
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:src="@drawable/timg" />
 
         <TableLayout
-            android:id="@+id/teacher_main_tableLayout"
+            android:id="@+id/student_main_tableLayout"
             android:layout_width="200dp"
             android:layout_height="200dp">
 
@@ -34,7 +34,7 @@
                     android:text="姓名" />
 
                 <EditText
-                    android:id="@+id/teacher_information_name"
+                    android:id="@+id/student_information_name"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:enabled="false"
@@ -50,7 +50,7 @@
                     android:text="性别" />
 
                 <EditText
-                    android:id="@+id/teacher_information_sex"
+                    android:id="@+id/student_information_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:enabled="false"
@@ -66,7 +66,7 @@
                     android:text="手机号" />
 
                 <EditText
-                    android:id="@+id/teacher_information_phonenumber"
+                    android:id="@+id/student_information_phonenumber"
                     android:layout_width="wrap_content"
                     android:inputType="phone"
                     android:layout_height="40dp"
@@ -83,7 +83,7 @@
                     android:text="电子邮箱" />
 
                 <EditText
-                    android:id="@+id/teacher_information_email"
+                    android:id="@+id/student_information_email"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:inputType="textEmailAddress"
@@ -100,57 +100,18 @@
                     android:text="职称" />
 
                 <EditText
-                    android:id="@+id/teacher_information_protitle"
+                    android:id="@+id/student_information_protitle"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:enabled="false"
-                    android:text="讲师" />
+                    android:text="学生" />
             </TableRow>
 
 
         </TableLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:text="所获荣誉"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text=""
-        android:focusable="false"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:text="科研项目"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text=""
-            android:focusable="false"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            />
-
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -175,5 +136,5 @@
             android:textSize="30dp"
             android:text="保存" />
         <!--android:background="@color/colorGreen"-->
-</LinearLayout>
+    </LinearLayout>
 </LinearLayout>
