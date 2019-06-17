@@ -14,6 +14,55 @@
         android:src="@drawable/bg_title01"/>
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:text="学期:"/>
+        <Spinner
+            android:id="@+id/spinner_selectCou_term"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:entries="@array/teacher_selectCour_term">
+            <!--也可以用代码绑定下拉框值-->
+            <!--//    需要适配器布局-->
+            <!--//    private String[] termList={"2018-2019-1","2018-2019-2","2019-2020-1","2019-2020-1"};-->
+            <!--//    private String[] classCountList={"1","2","3","4","5"};-->
+            <!--//    private ArrayAdapter<String> termSpinAdaper=-->
+            <!--//            new ArrayAdapter<String>(TeacherSelectCouActivity.this,"适配器布局",termList);-->
+        </Spinner>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:text="选班:"/>
+        <Spinner
+            android:id="@+id/spinner_selectCou_classCount"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="0.5"
+            android:entries="@array/teacher_selectCour_classCount">
+        </Spinner>
+        <ImageButton
+            android:id="@+id/btn_teacher_sureSelCourse"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:src="@drawable/icon_add"
+            android:background="#00000000"
+            android:scaleType="centerInside"
+            android:layout_marginEnd="0dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <GridView
             android:id="@+id/teacher_selectc_gridview"

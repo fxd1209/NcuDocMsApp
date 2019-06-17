@@ -10,6 +10,7 @@ import com.ncusoft.ncudocmsapp.pojo.Student;
 import com.ncusoft.ncudocmsapp.pojo.StudentCourse;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
 import com.ncusoft.ncudocmsapp.pojo.TeacherCourse;
+import com.ncusoft.ncudocmsapp.pojo.User;
 import com.ncusoft.ncudocmsapp.repository.course.CourseDao;
 import com.ncusoft.ncudocmsapp.repository.course.StudentCourseDao;
 import com.ncusoft.ncudocmsapp.repository.course.TeacherCourseDao;
@@ -26,6 +27,7 @@ public class TeacherService implements TeacherServiceInterface{
 
     private TeacherDao teacherDao=TeacherDao.getInstance();
     private CourseDao courseDao=CourseDao.getInstance();
+    private TeacherCourseDao teacherCourseDao=TeacherCourseDao.getInstance();
 
     @Override
     public Map<Teacher,List<TeacherCourse>> getTeaCourseByTeacherId(String teacherId) {
@@ -103,6 +105,42 @@ public class TeacherService implements TeacherServiceInterface{
         Map<Course,ArrayList<StudentCourse>> map= new HashMap<>();
         map.put(course,list);
         return map;
+    }
+
+    @Override
+    public boolean selectedCourse(List<TeacherCourse> teaCourseList) {
+        boolean insertAll=true;
+        for (TeacherCourse teacherCourse:teaCourseList){
+            if (-1==teacherCourseDao.insert(teacherCourse.toContentValues()))
+                insertAll=false;
+        }
+        return insertAll;
+    }
+
+    @Override
+    public boolean selectedCourse(String term,String classCount,Map<String, Course> courseMap) {
+        User user=ClientApplication.getInstance().getCurrentLoginUser();
+        if (user==null) try {
+            throw new Exception("未登录，当前用户为空异常!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }else{
+            if (courseMap.size()<=0) return false;
+            List<TeacherCourse> teaCourseList=new ArrayList<>();
+            for (Map.Entry<String,Course> entry:courseMap.entrySet()){
+                teaCourseList.add(
+                        new TeacherCourse.TeacherCourseBuilder()
+                        .id(null)
+                        .teacherId(user.getId())
+                        .courseId(entry.getValue().getId())
+                        .term(term)
+                        .classCount(classCount)
+                        .build());
+            }
+            return selectedCourse(teaCourseList);
+
+        }
+        return false;
     }
 
 

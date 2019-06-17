@@ -24,4 +24,10 @@ public interface TeacherServiceInterface {
      * @return
      */
     public Map<Course, ArrayList<StudentCourse>> getStudentList(TeacherCourse teacherCourse);
+
+    /**
+     * 教师选课
+     */
+    public boolean selectedCourse(List<TeacherCourse> teaCourseList);
+    public boolean selectedCourse(String term,String classCount,Map<String,Course> courseMap);
 }

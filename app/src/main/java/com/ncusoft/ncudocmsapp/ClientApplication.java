@@ -3,6 +3,7 @@ package com.ncusoft.ncudocmsapp;
 import android.app.Activity;
 import android.app.Application;
 
+import com.ncusoft.ncudocmsapp.pojo.User;
 import com.ncusoft.ncudocmsapp.repository.DatabaseHelper;
 
 import java.util.LinkedList;
@@ -14,6 +15,7 @@ public class ClientApplication extends Application {
     private static ClientApplication clientApplication;
     private static DatabaseHelper databaseHelper;
     private static String DatabaseName="ncudms.db";
+    private User currentLoginUser;
 
     /**
      * android.app.Application包的onCreate（）才是真正的Android程序的入口点
@@ -24,6 +26,12 @@ public class ClientApplication extends Application {
         ClientApplication.databaseHelper=new DatabaseHelper(getApplicationContext(),DatabaseName,null,1);
     }
 
+    public User getCurrentLoginUser(){
+        return currentLoginUser;
+    }
+    public void setCurrentLoginUser(User currentLoginUser){
+        this.currentLoginUser=currentLoginUser;
+    }
     public static DatabaseHelper getDatabaseHelper(){
         return ClientApplication.databaseHelper;
     }

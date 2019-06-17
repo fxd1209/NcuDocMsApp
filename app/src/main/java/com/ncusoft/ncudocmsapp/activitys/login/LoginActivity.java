@@ -62,6 +62,8 @@ public class LoginActivity extends AppCompatActivity {
                             //TODO: 到学生界面
                             break;
                         case "TEACHER":
+                            //记录当前登录的信息
+                            ClientApplication.getInstance().setCurrentLoginUser(user);
                             intent.setClass(LoginActivity.this, TeacherMainActivity.class);
                             startActivity(intent);
                             break;
