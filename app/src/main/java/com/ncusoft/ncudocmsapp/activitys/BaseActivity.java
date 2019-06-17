@@ -31,15 +31,16 @@ public class BaseActivity extends AppCompatActivity {
     }
     public void initBaseToolbar(String title){
         baseBar =(Toolbar) findViewById(R.id.teacher_main_toolbal);
-        baseBar.setLogo(R.drawable.wode);
+       // baseBar.setLogo(R.drawable.wode);
         baseBar.setTitle(title);
 //        baseBar.setSubtitle("课程列表");
         setSupportActionBar(baseBar);
 
-        baseBar.setNavigationIcon(R.drawable.bianji02);
+        baseBar.setNavigationIcon(R.drawable.back);
         baseBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setContentView(R.layout.activity_teacher_main);
 
             }
         });

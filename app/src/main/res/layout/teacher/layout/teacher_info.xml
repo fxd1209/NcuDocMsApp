@@ -37,7 +37,7 @@
                     android:id="@+id/teacher_information_name"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:focusable="false"
+                    android:enabled="false"
                     android:text="张三" />
             </TableRow>
 
@@ -53,7 +53,7 @@
                     android:id="@+id/teacher_information_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:focusable="false"
+                    android:enabled="false"
                     android:text="男" />
             </TableRow>
 
@@ -68,8 +68,9 @@
                 <EditText
                     android:id="@+id/teacher_information_phonenumber"
                     android:layout_width="wrap_content"
+                    android:inputType="phone"
                     android:layout_height="40dp"
-                    android:focusable="false"
+                    android:enabled="false"
                     android:text="15112345678" />
             </TableRow>
 
@@ -85,7 +86,8 @@
                     android:id="@+id/teacher_information_email"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:focusable="false"
+                    android:inputType="textEmailAddress"
+                    android:enabled="false"
                     android:text="123456789@qq.com" />
             </TableRow>
 
@@ -101,7 +103,7 @@
                     android:id="@+id/teacher_information_protitle"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:focusable="false"
+                    android:enabled="false"
                     android:text="讲师" />
             </TableRow>
 
@@ -153,14 +155,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
-        android:orientation="vertical">
+        android:orientation="horizontal">
         <Button
             android:id="@+id/btn_teacher_info_change"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="50dp"
-            android:background="@drable/"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/selector_button"
             android:textSize="30dp"
             android:text="编辑" />
+        <Button
+            android:id="@+id/btn_teacher_info_save"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/selector_button"
+            android:textSize="30dp"
+            android:text="保存" />
         <!--android:background="@color/colorGreen"-->
 </LinearLayout>
 </LinearLayout>
