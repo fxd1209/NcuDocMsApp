@@ -18,7 +18,6 @@
             android:id="@+id/teacher_top"
             android:layout_width="200dp"
             android:layout_height="200dp"
-
             android:src="@drawable/timg" />
 
         <TableLayout
@@ -29,13 +28,13 @@
             <TableRow>
 
                 <TextView
-                    android:id="@+id/teacher_information_name"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_centerVertical="true"
                     android:text="姓名" />
 
                 <EditText
+                    android:id="@+id/teacher_information_name"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:focusable="false"
@@ -45,13 +44,13 @@
             <TableRow>
 
                 <TextView
-                    android:id="@+id/teacher_information_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_centerVertical="true"
                     android:text="性别" />
 
                 <EditText
+                    android:id="@+id/teacher_information_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:focusable="false"
@@ -61,13 +60,13 @@
             <TableRow>
 
                 <TextView
-                    android:id="@+id/teacher_information_phonenumber"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_centerVertical="true"
                     android:text="手机号" />
 
                 <EditText
+                    android:id="@+id/teacher_information_phonenumber"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:focusable="false"
@@ -77,13 +76,13 @@
             <TableRow>
 
                 <TextView
-                    android:id="@+id/teacher_information_email"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_centerVertical="true"
                     android:text="电子邮箱" />
 
                 <EditText
+                    android:id="@+id/teacher_information_email"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:focusable="false"
@@ -93,13 +92,13 @@
             <TableRow>
 
                 <TextView
-                    android:id="@+id/teacher_information_protitle"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_centerVertical="true"
                     android:text="职称" />
 
                 <EditText
+                    android:id="@+id/teacher_information_protitle"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:focusable="false"

@@ -30,6 +30,17 @@ public class TeacherService implements TeacherServiceInterface{
     private TeacherCourseDao teacherCourseDao=TeacherCourseDao.getInstance();
 
     @Override
+    public Teacher getUserInfo() {
+       return getTeacherById(
+               ClientApplication.getInstance().getCurrentLoginUser().getId());
+    }
+
+    @Override
+    public Teacher getTeacherById(String teacherId) {
+        return teacherDao.queryById(teacherId);
+    }
+
+    @Override
     public Map<Teacher,List<TeacherCourse>> getTeaCourseByTeacherId(String teacherId) {
         SQLiteDatabase db= ClientApplication.getDatabaseHelper().getReadableDatabase();
         //多表连接查询 查询教师选课表以及课程信息

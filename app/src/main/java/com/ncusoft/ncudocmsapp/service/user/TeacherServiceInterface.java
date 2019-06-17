@@ -13,6 +13,17 @@ import java.util.Map;
 public interface TeacherServiceInterface {
 
     /**
+     * 获得当前登陆者的详细信息
+     * @return
+     */
+    public Teacher getUserInfo();
+    /**
+     * 根据ID 获得教师
+     * @param teacherId
+     * @return
+     */
+    public Teacher getTeacherById(String teacherId);
+    /**
      * 获取当前登录教师的所有课程
      * @param teacherId
      * @return
