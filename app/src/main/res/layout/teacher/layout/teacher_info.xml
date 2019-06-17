@@ -158,8 +158,9 @@
             android:id="@+id/btn_teacher_info_change"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/colorGreen"
+            android:background="@drable/"
             android:textSize="30dp"
             android:text="编辑" />
+        <!--android:background="@color/colorGreen"-->
 </LinearLayout>
 </LinearLayout>
