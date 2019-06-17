@@ -12,6 +12,10 @@
 
     <!-- android:text="添加&#10;课程" 换行-->
     <!-- android:text="添加\n课程" 换行-->
+    <include
+        layout="@layout/toolbal_base"
+        android:id="@+id/teacher_main_toolbal" /><!--这个id会代替 toolbal_base里面的id，实际运行的时候是将toolbal_base
+                                                               里面的代码拷贝过来-->
 
     <ImageView
         android:id="@+id/teacher_top"
