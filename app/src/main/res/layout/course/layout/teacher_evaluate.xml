@@ -2,17 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
+
     <include
         layout="@layout/toolbal_base"
-        android:id="@+id/teacher_main_toolbal" />
+        android:id="@+id/teacher_addCourseTop" />
 
     <TableLayout
         android:id="@+id/teacher_main_tableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="15dp"
+        android:padding="10dp">
 
         <TableRow >
             <TextView
@@ -21,113 +22,115 @@
                 android:text="序号"
                 />
             <TextView
-                android:layout_width="150dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="主题"
-                />
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="内容"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="日期"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="联系人"
+                android:text="评价"
                 />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="比例"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="数目"
+                />
         </TableRow>
         <TableRow >
-            <RadioButton
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="01"
+                />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="非常满意"
+                />
 
-                />
             <TextView
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="11111111111111"
-                />
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="22222222222222"
-                />
-            <TextView
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxEms="7"
-                android:singleLine="true"
-                android:text="2019-06-17"
+                android:text="10%"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="张三"
+                android:text="10"
                 />
-
         </TableRow>
         <TableRow >
-            <RadioButton
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="02"
+                />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="比较满意"
+                />
 
-                />
             <TextView
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="11111111111111"
-                />
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="22222222222222"
-                />
-            <TextView
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxEms="7"
-                android:singleLine="true"
-                android:text="2019-06-17"
+                android:text="30%"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="张三"
+                android:text="30"
                 />
-
         </TableRow>
+        <TableRow >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="03"
+                />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="良"
+                />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50%"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50"
+                />
+        </TableRow>
+        <TableRow >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="04"
+                />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="不满意"
+                />
 
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10%"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                />
+        </TableRow>
 
     </TableLayout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        >
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="删除"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="批量删除"
-            />
-
-
-    </LinearLayout>
 </LinearLayout>

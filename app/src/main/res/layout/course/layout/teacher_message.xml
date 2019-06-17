@@ -28,14 +28,15 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/teacher_information_name"
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
                     android:text="姓名" />
 
                 <EditText
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:focusable="false"
                     android:text="张三" />
             </TableRow>
@@ -43,14 +44,15 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/teacher_information_sex"
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
                     android:text="性别" />
 
                 <EditText
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:focusable="false"
                     android:text="男" />
             </TableRow>
@@ -58,32 +60,52 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/teacher_information_phonenumber"
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:text="民族" />
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:text="手机号" />
 
                 <EditText
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:focusable="false"
-                    android:text="汉" />
+                    android:text="15112345678" />
             </TableRow>
 
             <TableRow>
 
                 <TextView
+                    android:id="@+id/teacher_information_email"
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:text="出生日期" />
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:text="电子邮箱" />
 
                 <EditText
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:focusable="false"
-                    android:text="1988-1-1" />
+                    android:text="123456789@qq.com" />
             </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/teacher_information_protitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:text="职称" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:focusable="false"
+                    android:text="讲师" />
+            </TableRow>
+
+
         </TableLayout>
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -94,13 +116,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:text="工作经历"
+            android:text="所获荣誉"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="111111111111111"
+        android:text=""
         android:focusable="false"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -120,7 +142,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:text="111111111111111"
+            android:text=""
             android:focusable="false"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
