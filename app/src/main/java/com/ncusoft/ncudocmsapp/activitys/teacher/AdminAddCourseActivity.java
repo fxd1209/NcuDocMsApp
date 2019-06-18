@@ -40,29 +40,19 @@ public class AdminAddCourseActivity extends BaseActivity {
                 String courseId=editCourseId.getText().toString();
                 String courseName=editCourseName.getText().toString();
                 String courseCredit=editCourseCredit.getText().toString();
-                if (VerifyUtil.isStrEmpty(courseId) ||
-                        VerifyUtil.isStrEmpty(courseName) ||
-                        VerifyUtil.isStrEmpty(courseCredit)){
-                    ToastUtil.initToast(AdminAddCourseActivity.this, ToastUtil.ToastType.FAIL,
-                            "有些输入不能为空!", Toast.LENGTH_LONG,new Point(0,0))
-                            .show();
-                    return;
-                }else if (!VerifyUtil.isConsistsOfNum_Letter(courseId) || courseId.length()<6){
-                    ToastUtil.initToast(AdminAddCourseActivity.this, ToastUtil.ToastType.FAIL,
-                            "课程号为6位以上ASICC码!", Toast.LENGTH_LONG,new Point(0,0))
-                            .show();
-                    return;
-                }else if(!VerifyUtil.isNum(courseCredit) || Float.parseFloat(courseCredit)<0){
-                    ToastUtil.initToast(AdminAddCourseActivity.this, ToastUtil.ToastType.FAIL,
-                            "学分不合法!", Toast.LENGTH_LONG,new Point(0,0))
-                            .show();
-                    return;
-                }
-                if (-1!=courseService.addCourse(new Course.CourseBuilder()
+                Course course=new Course.CourseBuilder()
                         .id(courseId)
                         .name(courseName)
                         .credit(courseCredit)
-                        .build())){
+                        .build();
+                String msg=courseService.inputCheck(course);
+                if (!msg.equals("SUCCESS")){
+                    ToastUtil.initToast(AdminAddCourseActivity.this, ToastUtil.ToastType.FAIL,
+                            msg,Toast.LENGTH_LONG,new Point(0,0))
+                            .show();
+                    return;
+                }
+                if (-1!=courseService.addCourse(course)){
                     String strTip="添加"+courseName+"("+courseId+")"+courseCredit+"学分成功!";
                     ToastUtil.initToast(AdminAddCourseActivity.this, ToastUtil.ToastType.SUCCESS,
                             strTip, Toast.LENGTH_LONG,new Point(0,0))

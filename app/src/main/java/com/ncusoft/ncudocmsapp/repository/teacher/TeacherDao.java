@@ -116,15 +116,15 @@ public class TeacherDao implements TableInterface{
     }
 
     @Override
-    public long update(DatabaseHelper databaseHelper, ContentValues contentValues) {
+    public int update(DatabaseHelper databaseHelper, ContentValues contentValues) {
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
-        long id=db.update(TeacherDao.tableName, contentValues, TeacherDao.id+"=?", new String[]{contentValues.getAsString(TeacherDao.id)});
+        int id=db.update(TeacherDao.tableName, contentValues, TeacherDao.id+"=?", new String[]{contentValues.getAsString(TeacherDao.id)});
         db.close();
         return id;
     }
 
     @Override
-    public long update(ContentValues contentValues) {
+    public int update(ContentValues contentValues) {
         return update(databaseHelper,contentValues);
     }
 

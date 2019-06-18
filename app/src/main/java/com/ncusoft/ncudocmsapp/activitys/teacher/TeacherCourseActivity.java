@@ -201,6 +201,12 @@ public class TeacherCourseActivity extends BaseActivity {
             case 1: //点击添加学生
                 break;
             case 2: //点击编辑课程
+                Intent intent1=new Intent();
+                Bundle bundle1 =new Bundle();
+                intent1.setClass(TeacherCourseActivity.this,TeacherEditTeaCouActivity.class);
+                bundle1.putSerializable("teacherCourse",list.get(currentSel));
+                intent1.putExtras(bundle1);
+                startActivity(intent1);
                 break;
             case 3: //点击删除课程
                 //可以设置三个按钮

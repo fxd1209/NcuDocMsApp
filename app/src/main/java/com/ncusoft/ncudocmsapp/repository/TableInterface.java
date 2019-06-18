@@ -21,15 +21,15 @@ public interface TableInterface {
      * 更新数据
      * @param databaseHelper
      * @param contentValues
-     * @return
+     * @return 更新条数
      */
-    public long update(DatabaseHelper databaseHelper,ContentValues contentValues);
-    public long update(ContentValues contentValues);
+    public int update(DatabaseHelper databaseHelper,ContentValues contentValues);
+    public int update(ContentValues contentValues);
 
     /**
      * 删除数据
+     * 返回删除的数据条数
      */
-    //返回删除的数据条数
     public int delete(DatabaseHelper databaseHelper,String table, String whereClause, String[] whereArgs);
     public int deleteById(DatabaseHelper databaseHelper,String id);
     public int deleteById(String id);

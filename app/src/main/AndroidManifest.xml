@@ -33,6 +33,8 @@
         </activity>
         <activity android:name=".activitys.teacher.TeacherInfoActivity">
         </activity>
+        <activity android:name=".activitys.teacher.TeacherEditTeaCouActivity">
+        </activity>
         <!--teacher -->
     </application>
 

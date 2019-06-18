@@ -149,12 +149,12 @@ public class TeacherCourseDao implements TableInterface{
     }
 
     @Override
-    public long update(DatabaseHelper databaseHelper, ContentValues contentValues) {
+    public int update(DatabaseHelper databaseHelper, ContentValues contentValues) {
         return 0;
     }
 
     @Override
-    public long update(ContentValues contentValues) {
+    public int update(ContentValues contentValues) {
         return 0;
     }
 

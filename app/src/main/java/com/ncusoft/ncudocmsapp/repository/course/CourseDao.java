@@ -8,6 +8,7 @@ import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.pojo.Course;
 import com.ncusoft.ncudocmsapp.repository.DatabaseHelper;
 import com.ncusoft.ncudocmsapp.repository.TableInterface;
+import com.ncusoft.ncudocmsapp.repository.teacher.TeacherDao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,13 +109,16 @@ public class CourseDao implements TableInterface{
     }
 
     @Override
-    public long update(DatabaseHelper databaseHelper, ContentValues contentValues) {
-        return 0;
+    public int update(DatabaseHelper databaseHelper, ContentValues contentValues) {
+        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        int id=db.update(CourseDao.tableName, contentValues, CourseDao.id+"=?", new String[]{contentValues.getAsString(CourseDao.id)});
+        db.close();
+        return id;
     }
 
     @Override
-    public long update(ContentValues contentValues) {
-        return 0;
+    public int update(ContentValues contentValues) {
+        return update(databaseHelper,contentValues);
     }
 
     private Course cursorToPojo(Cursor cursor){

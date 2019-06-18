@@ -11,4 +11,17 @@ public interface CourseServiceInterface {
     public long addCourse(Course course);
 
     public int deleteTeacherCourse(TeacherCourse tc);
+
+    /**
+     * 课程输入信息检测
+     * @param course
+     * @return
+     */
+    public String inputCheck(Course course);
+
+    /**
+     * 根据课程号更新课程
+     * @return
+     */
+    public int updateById(Course course);
 }
