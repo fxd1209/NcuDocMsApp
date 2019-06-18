@@ -1,12 +1,21 @@
 package com.ncusoft.ncudocmsapp.activitys.login;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Point;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,15 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btnReg,btnLogin,btnForgetPwd;
     EditText loginId,loginPwd;
     LoginReceiver myReceiver;
-//    private Context context;
-    NotificationManager notificationManager= (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-    Notification notification = new Notification.Builder(LoginActivity.this)
-            .setContentTitle("标题")
-            .setContentText("内容")
-            .setWhen(System.currentTimeMillis())
-            .setSmallIcon(R.drawable.back)
-            .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.back))
-            .build();
+
 
 
 
@@ -53,8 +54,8 @@ public class LoginActivity extends AppCompatActivity {
         itFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         registerReceiver(myReceiver, itFilter);
 
-        int  notifiId=560;
-        notificationManager.notify(notifiId,notification);
+
+        
 
 
 
@@ -130,5 +131,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onDestroy();
         unregisterReceiver(myReceiver);
     }
+
+
+
+
+
 }
 
