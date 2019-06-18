@@ -17,6 +17,7 @@ public class TeacherMainActivity extends BaseActivity {
     private Button btnSelectCourse;
     private Button btnAddCourse;
     private Button btnPersonInfo;
+    private Button btnNotice;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,35 +38,37 @@ public class TeacherMainActivity extends BaseActivity {
         btnSelectCourse=findViewById(R.id.btn_teacher_selectCourse);
         btnAddCourse=findViewById(R.id.btn_teacher_addCourse);
         btnPersonInfo=findViewById(R.id.btn_teacher_info);
+        btnNotice=findViewById(R.id.btn_teacher_notice);
         btnCourseList.setOnClickListener(new TeacherBtnListener());
         btnSelectCourse.setOnClickListener(new TeacherBtnListener());
         btnAddCourse.setOnClickListener(new TeacherBtnListener());
         btnPersonInfo.setOnClickListener(new TeacherBtnListener());
+        btnNotice.setOnClickListener(new TeacherBtnListener());
     }
-        @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menu_teacher_myclass:
-                Toast.makeText(this, "我的课程", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.menu_teacher_selectclass:
-                Toast.makeText(this, "选择课程", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.menu_teacher_addclass:
-               Toast.makeText(this, "添加课程", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.menu_teacher_mymessage:
-                Toast.makeText(this, "个人信息", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.menu_teacher_notice:
-                Toast.makeText(this, "信息通知", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.menu_teacher_appraise:
-                Toast.makeText(this, "学生评价", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return true;
-    }
+//        @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()){
+//            case R.id.menu_teacher_myclass:
+//                Toast.makeText(this, "我的课程", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.menu_teacher_selectclass:
+//                Toast.makeText(this, "选择课程", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.menu_teacher_addclass:
+//               Toast.makeText(this, "添加课程", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.menu_teacher_mymessage:
+//                Toast.makeText(this, "个人信息", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.menu_teacher_notice:
+//                Toast.makeText(this, "信息通知", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.menu_teacher_appraise:
+//                Toast.makeText(this, "学生评价", Toast.LENGTH_SHORT).show();
+//                break;
+//        }
+//        return true;
+//    }
 
     class TeacherBtnListener implements View.OnClickListener{
 
@@ -83,6 +86,9 @@ public class TeacherMainActivity extends BaseActivity {
                     break;
                 case R.id.btn_teacher_info:
                     startActivity(new Intent().setClass(TeacherMainActivity.this, TeacherInfoActivity.class));
+                    break;
+                case R.id.btn_teacher_notice:
+                    startActivity(new Intent().setClass(TeacherMainActivity.this, TeacherNoticeActivity.class));
                     break;
                     default:
             }

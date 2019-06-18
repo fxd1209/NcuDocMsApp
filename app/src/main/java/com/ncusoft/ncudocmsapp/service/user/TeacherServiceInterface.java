@@ -56,4 +56,6 @@ public interface TeacherServiceInterface {
      */
     public long updateById(Teacher teacher);
 
+    public boolean addStuToTeaCourse(TeacherCourse teacherCourse,Student student);
+
 }

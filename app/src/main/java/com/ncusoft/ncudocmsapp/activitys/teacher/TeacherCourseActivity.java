@@ -199,6 +199,12 @@ public class TeacherCourseActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case 1: //点击添加学生
+                Intent intent0=new Intent();
+                Bundle bundle0 =new Bundle();
+                intent0.setClass(TeacherCourseActivity.this,TeacherCourseAddStuActivity.class);
+                bundle0.putSerializable("teacherCourse",list.get(currentSel));
+                intent0.putExtras(bundle0);
+                startActivity(intent0);
                 break;
             case 2: //点击编辑课程
                 Intent intent1=new Intent();

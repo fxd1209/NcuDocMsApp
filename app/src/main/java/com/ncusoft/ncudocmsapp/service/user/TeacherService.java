@@ -187,5 +187,16 @@ public class TeacherService implements TeacherServiceInterface{
         return teacherDao.update(contentValues);
     }
 
+    @Override
+    public boolean addStuToTeaCourse(TeacherCourse teacherCourse, Student student) {
+        if (teacherCourse==null || student==null) return false;
+        String courseId=teacherCourse.getCourseId();
+        String teacherId=teacherCourse.getTeacherId();
+        String studentId=student.getId();
+        String term=teacherCourse.getTerm();
+
+        return false;
+    }
+
 
 }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ncusoft.ncudocmsapp">
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <application
         android:allowBackup="true"
         android:name=".ClientApplication"
@@ -35,7 +37,17 @@
         </activity>
         <activity android:name=".activitys.teacher.TeacherEditTeaCouActivity">
         </activity>
+        <activity android:name=".activitys.teacher.TeacherNoticeActivity">
+        </activity>
+        <activity android:name=".activitys.teacher.TeacherCourseAddStuActivity">
+        </activity>
         <!--teacher -->
+        <!--service-->
+        <service android:name=".service.downloadservice.DownloadService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <!--service-->
     </application>
 
 </manifest>
