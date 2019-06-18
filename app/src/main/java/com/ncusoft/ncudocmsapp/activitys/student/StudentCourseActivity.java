@@ -1,15 +1,16 @@
-package com.ncusoft.ncudocmsapp.activitys.teacher;
+package com.ncusoft.ncudocmsapp.activitys.student;
 
 import android.os.Bundle;
 
 import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.activitys.BaseActivity;
 
-public class StudentSelectCouActivity extends BaseActivity {
+public class StudentCourseActivity extends BaseActivity {
     @Override
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_selectcourse);
-        initBaseToolbar("选择课程");
+        setContentView(R.layout.activity_student_course);
+        initBaseToolbar("我的课程");
     }
 }

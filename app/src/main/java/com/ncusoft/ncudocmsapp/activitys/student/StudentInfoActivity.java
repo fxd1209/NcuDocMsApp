@@ -1,4 +1,4 @@
-package com.ncusoft.ncudocmsapp.activitys.teacher;
+package com.ncusoft.ncudocmsapp.activitys.student;
 
 import android.os.Bundle;
 
