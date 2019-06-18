@@ -1,6 +1,11 @@
 package com.ncusoft.ncudocmsapp.activitys.login;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,11 +27,38 @@ public class LoginActivity extends AppCompatActivity {
     LoginServiceInterface loginInterface=new LoginService();
     Button btnReg,btnLogin,btnForgetPwd;
     EditText loginId,loginPwd;
+    LoginReceiver myReceiver;
+//    private Context context;
+    NotificationManager notificationManager= (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+    Notification notification = new Notification.Builder(LoginActivity.this)
+            .setContentTitle("标题")
+            .setContentText("内容")
+            .setWhen(System.currentTimeMillis())
+            .setSmallIcon(R.drawable.back)
+            .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.back))
+            .build();
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        myReceiver = new LoginReceiver();
+        IntentFilter itFilter = new IntentFilter();
+        itFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        registerReceiver(myReceiver, itFilter);
+
+        int  notifiId=560;
+        notificationManager.notify(notifiId,notification);
+
+
+
+
         //getApplication只能在Activity中调用，需要在service中调用，
         // 故将application保存供调用
         ClientApplication.setClientApplication((ClientApplication)getApplication());
@@ -91,6 +123,12 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+    }
+    //别忘了将广播取消掉哦~
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(myReceiver);
     }
 }
 
