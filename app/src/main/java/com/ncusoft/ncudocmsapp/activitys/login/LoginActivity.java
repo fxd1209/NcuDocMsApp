@@ -38,12 +38,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText loginId,loginPwd;
     LoginReceiver myReceiver;
 
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         IntentFilter itFilter = new IntentFilter();
         itFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         registerReceiver(myReceiver, itFilter);
-
-
-        
-
-
-
 
         //getApplication只能在Activity中调用，需要在service中调用，
         // 故将application保存供调用

@@ -1,6 +1,7 @@
 package com.ncusoft.ncudocmsapp.utils;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Point;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -22,8 +23,8 @@ public class ToastUtil {
         DOUBT    //疑问
     }
 
-    public static Toast initToast(Activity activity,ToastType toastType,String msg,int duration, Point pos){
-        LayoutInflater inflater =activity.getLayoutInflater();
+    public static Toast initToast(Context context, ToastType toastType, String msg, int duration, Point pos){
+        LayoutInflater inflater =((Activity)context).getLayoutInflater();
         View layout=inflater.inflate(R.layout.toast_msg,null);
         ImageView icon=(ImageView)layout.findViewById(R.id.toast_msg_icon);
         TextView text=(TextView)layout.findViewById(R.id.toast_msg_text);
@@ -45,7 +46,7 @@ public class ToastUtil {
                 break;
         }
         text.setText(msg);
-        Toast toast=new Toast(activity);
+        Toast toast=new Toast(context);
         toast.setDuration(duration);
         toast.setView(layout);
         toast.setGravity(Gravity.CENTER,pos.x,pos.y);
