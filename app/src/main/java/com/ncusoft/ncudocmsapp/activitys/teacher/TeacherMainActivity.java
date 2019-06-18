@@ -1,15 +1,17 @@
 package com.ncusoft.ncudocmsapp.activitys.teacher;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.activitys.BaseActivity;
+import com.ncusoft.ncudocmsapp.utils.ToastUtil;
 
 public class TeacherMainActivity extends BaseActivity {
 
@@ -45,6 +47,21 @@ public class TeacherMainActivity extends BaseActivity {
         btnPersonInfo.setOnClickListener(new TeacherBtnListener());
         btnNotice.setOnClickListener(new TeacherBtnListener());
     }
+    private long firstClickTime=0L;
+    @Override
+    public void onBackPressed(){
+        if (System.currentTimeMillis()-firstClickTime<1500){
+            finish();
+            ClientApplication.exit();
+            System.exit(0);
+        }else {
+            ToastUtil.initToast(TeacherMainActivity.this, ToastUtil.ToastType.WARNING,
+                    "双击退出",Toast.LENGTH_LONG,new Point(0,0)).show();
+            firstClickTime=System.currentTimeMillis();
+
+        }
+    }
+
 //        @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        switch (item.getItemId()){

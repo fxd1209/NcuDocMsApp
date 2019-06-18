@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.R;
+import com.ncusoft.ncudocmsapp.activitys.BaseActivity;
 import com.ncusoft.ncudocmsapp.activitys.student.StudentMainActivity;
 import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherCourseActivity;
 import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherMainActivity;
@@ -36,7 +37,7 @@ import com.ncusoft.ncudocmsapp.service.login.LoginServiceInterface;
 import com.ncusoft.ncudocmsapp.service.login.LoginService;
 import com.ncusoft.ncudocmsapp.utils.ToastUtil;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     private LoginServiceInterface loginInterface=new LoginService();
     private Button btnReg,btnLogin;/*,btnForgetPwd*/
     private EditText loginId,loginPwd;
@@ -47,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -112,6 +113,7 @@ public class LoginActivity extends AppCompatActivity {
                             break;
                     }
                     startActivity(intent);
+                    finish();
                 }
 
 
@@ -134,6 +136,20 @@ public class LoginActivity extends AppCompatActivity {
 //        });
 
 
+    }
+    private long firstClickTime=0L;
+    @Override
+    public void onBackPressed(){
+        if (System.currentTimeMillis()-firstClickTime<1500){
+            finish();
+            ClientApplication.exit();
+            System.exit(0);
+        }else {
+            ToastUtil.initToast(LoginActivity.this, ToastUtil.ToastType.WARNING,
+                    "双击退出",Toast.LENGTH_LONG,new Point(0,0)).show();
+            firstClickTime=System.currentTimeMillis();
+
+        }
     }
     //别忘了将广播取消掉哦~
     @Override

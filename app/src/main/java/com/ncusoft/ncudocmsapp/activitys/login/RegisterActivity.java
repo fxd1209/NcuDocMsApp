@@ -15,13 +15,14 @@ import android.widget.Toast;
 
 import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.R;
+import com.ncusoft.ncudocmsapp.activitys.BaseActivity;
 import com.ncusoft.ncudocmsapp.pojo.Student;
 import com.ncusoft.ncudocmsapp.pojo.Teacher;
 import com.ncusoft.ncudocmsapp.service.login.RegisterServiceInterface;
 import com.ncusoft.ncudocmsapp.service.login.RegisterService;
 import com.ncusoft.ncudocmsapp.utils.ToastUtil;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends BaseActivity {
 
     RegisterServiceInterface registerInterface=new RegisterService();
 
@@ -35,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acitivity_register);
 
@@ -102,6 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         ToastUtil.ToastType.SUCCESS,"注册学生成功",
                                         Toast.LENGTH_LONG,new Point(0,0)).show();
                                 startActivity(new Intent().setClass(RegisterActivity.this,LoginActivity.class));
+                                finish();
                             }
                             else{
                                 ToastUtil.initToast(RegisterActivity.this,

@@ -1,6 +1,7 @@
 package com.ncusoft.ncudocmsapp.activitys.student;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.activitys.BaseActivity;
 import com.ncusoft.ncudocmsapp.activitys.teacher.AdminAddCourseActivity;
@@ -15,6 +17,10 @@ import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherCourseActivity;
 import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherInfoActivity;
 import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherSelectCouActivity;
 import com.ncusoft.ncudocmsapp.pojo.Student;
+import com.ncusoft.ncudocmsapp.utils.ToastUtil;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class StudentMainActivity extends BaseActivity {
 
@@ -70,6 +76,20 @@ public class StudentMainActivity extends BaseActivity {
                 break;
         }
         return true;
+    }
+    private long firstClickTime=0L;
+    @Override
+    public void onBackPressed(){
+        if (System.currentTimeMillis()-firstClickTime>1500){
+            finish();
+            ClientApplication.exit();
+            System.exit(0);
+        }else {
+            ToastUtil.initToast(StudentMainActivity.this, ToastUtil.ToastType.WARNING,
+                    "双击退出",Toast.LENGTH_LONG,new Point(0,0)).show();
+            firstClickTime=System.currentTimeMillis();
+
+        }
     }
 
     class StudentBtnListener implements View.OnClickListener{
