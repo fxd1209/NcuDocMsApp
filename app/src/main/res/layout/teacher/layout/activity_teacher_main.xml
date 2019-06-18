@@ -10,6 +10,8 @@
                                                                里面的代码拷贝过来-->
 
 
+
+
     <ImageView
         android:id="@+id/teacher_top"
         android:layout_width="match_parent"

@@ -1,20 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:orientation="vertical">
-
     <include
         layout="@layout/toolbal_base"
         android:id="@+id/teacher_main_toolbal" /> <!--这个id会代替 toolbal_base里面的id，实际运行的时候是将toolbal_base
                                                                里面的代码拷贝过来-->
 
 
-    <!-- android:text="添加&#10;课程" 换行-->
-    <!-- android:text="添加\n课程" 换行-->
+
 
     <ImageView
-        android:id="@+id/teacher_top"
+        android:id="@+id/student_top"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="fitXY"
@@ -32,7 +31,7 @@
                 android:background="#E1FFFF"
                 android:src="@drawable/zhishi" />
             <Button
-                android:id="@+id/btn_student_myclass"
+                android:id="@+id/btn_student_courseList"
                 android:layout_width="80dp"
                 android:layout_height="100dp"
                 android:layout_marginEnd="10dp"
@@ -42,53 +41,53 @@
 
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:background="#F5DEB3"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/chazhao"/>
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:background="#F5DEB3"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/chazhao"/>
 
             <Button
-                android:id="@+id/btn_student_selectclass"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:background="#F5DEB3"
-                android:textSize="20sp"
-                android:text="选择\n课程" />
+            android:id="@+id/btn_student_selectCourse"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:background="#F5DEB3"
+            android:textSize="20sp"
+            android:text="选择\n课程" />
 
         </TableRow>
         <TableRow android:gravity="center"
             android:layout_marginTop="15dp">
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:background="#FFE4E1"
-                android:src="@drawable/bianji" />
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:background="#FFE4E1"
+            android:src="@drawable/bianji" />
 
             <Button
-                android:id="@+id/btn_student_addclass"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginEnd="10dp"
-                android:textSize="20sp"
-                android:background="#FFE4E1"
-                android:text="添加\n课程" /> <!--换行-->
+            android:id="@+id/btn_student_addCourse"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="10dp"
+            android:textSize="20sp"
+            android:background="#FFE4E1"
+            android:text="添加\n课程" /> <!--换行-->
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="10dp"
-                android:background="#ADD8E6"
-                android:src="@drawable/wode" />
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:background="#ADD8E6"
+            android:src="@drawable/wode" />
 
 
             <Button
-                android:id="@+id/btn_student_mymessage"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:background="#ADD8E6"
-                android:textSize="20sp"
-                android:text="个人\n信息" />
+            android:id="@+id/btn_student_info"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:background="#ADD8E6"
+            android:textSize="20sp"
+            android:text="个人\n信息" />
 
         </TableRow>
         <TableRow
@@ -96,34 +95,34 @@
             android:layout_marginTop="15dp">
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:background="#FFFF00"
-                android:src="@drawable/tongzhi" />
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:background="#FFFF00"
+            android:src="@drawable/tongzhi" />
 
             <Button
-                android:id="@+id/btn_student_notice"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginEnd="10dp"
-                android:background="#FFFF00"
-                android:textSize="20sp"
-                android:text="信息\n通知" />
+            android:id="@+id/btn_student_notice"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="10dp"
+            android:background="#FFFF00"
+            android:textSize="20sp"
+            android:text="信息\n通知" />
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="10dp"
-                android:background="#EE82EE"
-                android:src="@drawable/dianzan" />
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:background="#EE82EE"
+            android:src="@drawable/dianzan" />
 
             <Button
-                android:id="@+id/btn_student_appraise"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:background="#EE82EE"
-                android:textSize="20sp"
-                android:text="老师\n评价" />
+            android:id="@+id/btn_student_appraise"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:background="#EE82EE"
+            android:textSize="20sp"
+            android:text="学生\n评价" />
 
         </TableRow>
     </TableLayout>

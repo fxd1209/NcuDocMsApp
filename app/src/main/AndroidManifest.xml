@@ -52,6 +52,9 @@
         <!--student-->
         <activity android:name=".activitys.student.StudentMainActivity">
         </activity>
+
+        <activity android:name=".activitys.student.StudentCourseActivity">
+        </activity>
         <!--student-->
     </application>
 
