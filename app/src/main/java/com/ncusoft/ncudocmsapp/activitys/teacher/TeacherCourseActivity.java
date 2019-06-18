@@ -15,6 +15,7 @@ import android.widget.GridView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
+import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.R;
 import com.ncusoft.ncudocmsapp.activitys.BaseActivity;
 import com.ncusoft.ncudocmsapp.activitys.course.TeacherCourseAdapter;
@@ -135,15 +136,14 @@ public class TeacherCourseActivity extends BaseActivity {
 
         courseGirdView = (GridView) findViewById(R.id.teacher_course_grid_view);
 
-        tCourseListMap=teacherService.getTeaCourseByTeacherId("18748980084");
+        //查询当前登录者选课信息
+
+        tCourseListMap=teacherService.getTeaCourseByTeacherId(
+                ClientApplication.getInstance().getCurrentLoginUser().getId());
         Set<Teacher> teacherSet=tCourseListMap.keySet();
         for (Teacher teacher : teacherSet){
+            if (teacher==null) break;
             list=tCourseListMap.get(teacher);
-            if (teacher==null || list==null) break;
-            Log.i(TAG+"教师",teacher.toString());
-            for (TeacherCourse tc:list){
-                Log.i(TAG+"课程",tc.toString());
-            }
         }
         tcAdapter=new TeacherCourseAdapter(TeacherCourseActivity.this,list);
         courseGirdView.setAdapter(tcAdapter);
@@ -157,6 +157,28 @@ public class TeacherCourseActivity extends BaseActivity {
         });
     } //end onCreate
 
+    @Override
+    public void onStart(){
+        super.onStart();
+        //重新从数据库读出数据
+        Map<Teacher,List<TeacherCourse>> tempMap=null;
+        List<TeacherCourse> tempList=null;
+        tempMap=teacherService.getTeaCourseByTeacherId(
+                ClientApplication.getInstance().getCurrentLoginUser().getId());
+        Set<Teacher> teacherSet=tempMap.keySet();
+        for (Teacher teacher : teacherSet){
+            if (teacher==null) break;
+            tempList=tempMap.get(teacher);
+        }
+
+        //如果读出的数据和原来的list大小不一致，说明数据改变了
+        if (!(tempList!=null && tempList.size()==list.size())){
+            list=tempList;
+            tcAdapter.setCourseList(list);
+            tcAdapter.refreshDataSet();
+        }
+
+    }
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
         menu.add(0,0,0,"查看学生");
