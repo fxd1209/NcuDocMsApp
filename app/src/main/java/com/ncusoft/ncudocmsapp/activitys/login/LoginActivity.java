@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.ncusoft.ncudocmsapp.ClientApplication;
 import com.ncusoft.ncudocmsapp.R;
+import com.ncusoft.ncudocmsapp.activitys.student.StudentMainActivity;
 import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherCourseActivity;
 import com.ncusoft.ncudocmsapp.activitys.teacher.TeacherMainActivity;
 import com.ncusoft.ncudocmsapp.pojo.User;
@@ -80,7 +81,10 @@ public class LoginActivity extends AppCompatActivity {
                             //TODO: 到管理员界面
                             break;
                         case "STUDENT":
-                            //TODO: 到学生界面
+                            //记录当前登录的信息
+                            ClientApplication.getInstance().setCurrentLoginUser(user);
+                            intent.setClass(LoginActivity.this, StudentMainActivity.class);
+                            startActivity(intent);
                             break;
                         case "TEACHER":
                             //记录当前登录的信息

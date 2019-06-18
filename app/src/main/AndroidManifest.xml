@@ -48,6 +48,11 @@
             android:exported="true">
         </service>
         <!--service-->
+
+        <!--student-->
+        <activity android:name=".activitys.student.StudentMainActivity">
+        </activity>
+        <!--student-->
     </application>
 
 </manifest>
