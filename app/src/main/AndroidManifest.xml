@@ -36,6 +36,12 @@
         <activity android:name=".activitys.teacher.TeacherEditTeaCouActivity">
         </activity>
         <!--teacher -->
+
+
+        <!--student-->
+        <activity android:name=".activitys.student.StudentMainActivity">
+        </activity>
+        <!--student-->
     </application>
 
 </manifest>
