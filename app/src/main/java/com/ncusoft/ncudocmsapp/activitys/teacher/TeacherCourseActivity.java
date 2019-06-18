@@ -191,17 +191,10 @@ public class TeacherCourseActivity extends BaseActivity {
     public boolean onContextItemSelected(MenuItem item){
         switch (item.getItemId()){
             case 0: //点击查看学生
-                Map<Course,ArrayList<StudentCourse>>map=teacherService.getStudentList(list.get(currentSel));
-                ArrayList<StudentCourse> scList=new ArrayList<>();
-                Set<Course> courseSet=map.keySet();
-                for (Course course:courseSet){
-                    scList=map.get(course);
-                    if (course==null || scList==null) break;
-                }
                 Intent intent=new Intent();
                 Bundle bundle =new Bundle();
                 intent.setClass(TeacherCourseActivity.this,TeacherStuListActivity.class);
-                bundle.putSerializable("stuList",scList);
+                bundle.putSerializable("teacherCourse",list.get(currentSel));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 break;
