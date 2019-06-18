@@ -24,7 +24,6 @@ public class TeacherMainActivity extends BaseActivity {
         setContentView(R.layout.activity_teacher_main);
         initBaseToolbar("主菜单");
         InitBtns(); //初始化按钮，并绑定监听事件
-
     }
 
     @Override

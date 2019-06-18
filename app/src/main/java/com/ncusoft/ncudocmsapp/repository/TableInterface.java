@@ -12,8 +12,7 @@ public interface TableInterface {
 
     public long insert(DatabaseHelper databaseHelper, ContentValues values);
     public long insert(ContentValues values);
-    //返回删除的数据条数
-    public int delete(String table, String whereClause, String[] whereArgs);
+
     //通过ID
     public Object queryById(DatabaseHelper databaseHelper,String id);
     public List<?> queryAll(DatabaseHelper databaseHelper);
@@ -26,5 +25,13 @@ public interface TableInterface {
      */
     public long update(DatabaseHelper databaseHelper,ContentValues contentValues);
     public long update(ContentValues contentValues);
+
+    /**
+     * 删除数据
+     */
+    //返回删除的数据条数
+    public int delete(DatabaseHelper databaseHelper,String table, String whereClause, String[] whereArgs);
+    public int deleteById(DatabaseHelper databaseHelper,String id);
+    public int deleteById(String id);
 
 }

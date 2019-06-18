@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.ncusoft.ncudocmsapp.R;
+import com.ncusoft.ncudocmsapp.pojo.TeacherCourse;
 import com.ncusoft.ncudocmsapp.utils.ToastUtil;
 
 public class BaseToolBarMenuSelectedListener implements Toolbar.OnMenuItemClickListener{
@@ -26,15 +27,19 @@ public class BaseToolBarMenuSelectedListener implements Toolbar.OnMenuItemClickL
             // break;
             case R.id.menu_teacher_myclass: //我的课程
                 context.startActivity(new Intent().setClass(context,TeacherCourseActivity.class));
+//                ((Activity)context).finish();
                 break;
             case R.id.menu_teacher_selectclass: //选择课程
                 context.startActivity(new Intent().setClass(context,TeacherSelectCouActivity.class));
+//                ((Activity)context).finish();
                 break;
             case R.id.menu_teacher_addclass:  //添加课程
                 context.startActivity(new Intent().setClass(context,AdminAddCourseActivity.class));
+//                ((Activity)context).finish();
                 break;
             case R.id.menu_teacher_mymessage: //个人信息
                 context.startActivity(new Intent().setClass(context,TeacherInfoActivity.class));
+//                ((Activity)context).finish();
                 break;
             case R.id.menu_teacher_notice: //通知
                 ToastUtil.initToast((Activity)context, ToastUtil.ToastType.FAIL,
