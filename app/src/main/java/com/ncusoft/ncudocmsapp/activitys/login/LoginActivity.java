@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -15,11 +16,13 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -34,10 +37,14 @@ import com.ncusoft.ncudocmsapp.service.login.LoginService;
 import com.ncusoft.ncudocmsapp.utils.ToastUtil;
 
 public class LoginActivity extends AppCompatActivity {
-    LoginServiceInterface loginInterface=new LoginService();
-    Button btnReg,btnLogin,btnForgetPwd;
-    EditText loginId,loginPwd;
-    LoginReceiver myReceiver;
+    private LoginServiceInterface loginInterface=new LoginService();
+    private Button btnReg,btnLogin;/*,btnForgetPwd*/
+    private EditText loginId,loginPwd;
+    private CheckBox checkBoxRemPass;
+    private LoginReceiver myReceiver;
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +62,20 @@ public class LoginActivity extends AppCompatActivity {
 
         btnReg=(Button)findViewById(R.id.btn_register);
         btnLogin=(Button)findViewById(R.id.btn_login);
-        btnForgetPwd=(Button)findViewById(R.id.btn_forget_pwd);
+//        btnForgetPwd=(Button)findViewById(R.id.btn_forget_pwd);
         loginId=(EditText)findViewById(R.id.edit_login_id);
         loginPwd=(EditText)findViewById(R.id.edit_login_password);
-
+        checkBoxRemPass=(CheckBox)findViewById(R.id.login_remember_pass);
+        sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isRemember=sharedPreferences.getBoolean("remember_password",false);
+        //将值设置在输入框中
+        if (isRemember){
+            String userId=sharedPreferences.getString("userId","");
+            String userPwd=sharedPreferences.getString("userPwd","");
+            loginId.setText(userId);
+            loginPwd.setText(userPwd);
+            checkBoxRemPass.setChecked(true);
+        }
         //绑定监听
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT,new Point(0,0)).show();
                 } else{
                     Intent intent=new Intent();
+                    isRememberPassword(user);
                     switch (user.getAuthority()){
                         case "ADMIN":
                             //TODO: 到管理员界面
@@ -108,12 +126,12 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btnForgetPwd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent().setClass(LoginActivity.this, TeacherCourseActivity.class));
-            }
-        });
+//        btnForgetPwd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent().setClass(LoginActivity.this, TeacherCourseActivity.class));
+//            }
+//        });
 
 
     }
@@ -122,6 +140,17 @@ public class LoginActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(myReceiver);
+    }
+    private void isRememberPassword(User user){
+        editor=sharedPreferences.edit();
+        if (checkBoxRemPass.isChecked()){
+            editor.putBoolean("remember_password",true);
+            editor.putString("userId",user.getId());
+            editor.putString("userPwd",user.getPassword());
+        }else{
+            editor.clear();
+        }
+        editor.apply();
     }
 
 
