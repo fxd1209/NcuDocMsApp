@@ -20,6 +20,12 @@
     <item android:id="@+id/menu_teacher_appraise"
         app:showAsAction="never"
         android:title="学生评价"/>
+    <item android:id="@+id/menu_teacher_about"
+        app:showAsAction="never"
+        android:title="关于"/>
+    <item android:id="@+id/menu_teacher_exit"
+        app:showAsAction="never"
+        android:title="退出"/>
 
 
 
