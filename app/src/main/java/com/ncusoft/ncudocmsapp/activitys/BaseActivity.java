@@ -35,7 +35,6 @@ public class BaseActivity extends AppCompatActivity {
         baseBar.setTitle(title);
 //        baseBar.setSubtitle("课程列表");
         setSupportActionBar(baseBar);
-
         baseBar.setNavigationIcon(R.drawable.back);
         baseBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +43,6 @@ public class BaseActivity extends AppCompatActivity {
             }
         });
         baseBar.setOnMenuItemClickListener(new BaseToolBarMenuSelectedListener(this));
-
     }
 
 }
